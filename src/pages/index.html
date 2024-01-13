@@ -4,14 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/src/styles/estilo.css">
+    <!--Link para los iconos-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-...." crossorigin="anonymous" />
+    <!--Link para el slider-->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
     <title>Inicio</title>
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="/src/assets/logo.jpeg" alt="Logo de ela empresa">
+            <img src="/src/assets/logo2.jpeg" alt="Logo de ela empresa">
         </div>
         <nav>
             <ul>
@@ -21,11 +24,46 @@
             </ul>
         </nav>
     </header>
-    <section id="content">
-        buenas tardes
+    <!--Slider de los productos populares-->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="/src/assets/Cuautex-130.jpeg" alt="Slide 1">
+            </div>
+            <div class="swiper-slide">
+                <img src="/src/assets/Cuautex-170.jpeg" alt="Slide 2">
+            </div>
+            <div class="swiper-slide">
+                <img src="/src/assets/Cuautex-120.jpeg" alt="Slide 3">
+            </div>
+        </div>
+        
+        <!-- Agrega la paginación y navegación si lo deseas -->
+        
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+
+
+<!--espectacular-->
+    <section class="hero-section">
+        <h1>Descubre la Elegancia</h1>
+        <p>Explora nuestras exclusivas colecciones para novias y encuentra el vestido perfecto para tu día especial.</p>
+        <a href="/src/pages/productos.html" class="cta-button">Ver Colecciones</a>
     </section>
+    <!-- Seccion de productos -->
+    <div class="product-cards">
+        <div class="product-card">
+            <img src="/src/assets/Cuautex-120.jpeg" alt="Producto 1">
+            <h2>Producto 1</h2>
+            <p>Descripción breve del Producto 1.</p>
+            <a href="#" class="product-link">Ver Detalles</a>
+        </div>
     <footer>
         <p>&copy; 2024 Aleana & Carlup</p>
     </footer>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="/src/scripts/slider.js"></script>
 </body>
 </html>
