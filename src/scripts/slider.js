@@ -14,4 +14,5 @@ var swiper = new Swiper('.swiper-container', {
         delay: 5000, // Milisegundos entre cada diapositiva
         disableOnInteraction: false, // Evita que se detenga al interactuar con el slider
     },
+    width: window.innerWidth, // Ajusta el ancho de las diapositivas
 });

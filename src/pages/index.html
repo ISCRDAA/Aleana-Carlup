@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/src/styles/estilo.css">
+    <link rel="stylesheet" href="../styles/estilo.css">
+    <link rel="shortcut icon" href="../assets/iconoblanco.ico" />
     <!--Link para los iconos-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-...." crossorigin="anonymous" />
     <!--Link para el slider-->
@@ -14,48 +15,44 @@
 <body>
     <header>
         <div class="logo">
-            <img src="/src/assets/logo2.jpeg" alt="Logo de ela empresa">
+            <img src="../assets/logo3.jpeg" alt="Logo de ela empresa">
         </div>
-        <nav>
-            <ul>
-                <li><a href="/src/pages/productos.html"><i class="fas fa-box"></i>Productos</a></li>
+        <nav class="navbar">
+            <div class="menu-icon" id="menu-icon">&#9776;</div>
+            <ul class="nav-list" id="nav-list">
+                <li><a href="../pages/productos.html"><i class="fas fa-box"></i>Productos</a></li>
                 <li><a href=""> <i class="fas fa-info-circle"></i>Acerca de nosotros</a></li>
                 <li><a href=""><i class="fas fa-envelope"></i>Contacto</a></li>
             </ul>
         </nav>
     </header>
+
     <!--Slider de los productos populares-->
     <div class="swiper-container">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
-                <img src="/src/assets/Cuautex-130.jpeg" alt="Slide 1">
+                <img src="../assets/IMG_6528.jpeg" alt="Slide 1">
             </div>
             <div class="swiper-slide">
-                <img src="/src/assets/Cuautex-170.jpeg" alt="Slide 2">
+                <img src="../assets/Cuautex-170.jpeg" alt="Slide 2">
             </div>
             <div class="swiper-slide">
-                <img src="/src/assets/Cuautex-120.jpeg" alt="Slide 3">
+                <img src="../assets/Cuautex-120.jpeg" alt="Slide 3">
             </div>
         </div>
         
-        <!-- Agrega la paginación y navegación si lo deseas -->
         
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-    </div>
-
 
 <!--espectacular-->
     <section class="hero-section">
         <h1>Descubre la Elegancia</h1>
         <p>Explora nuestras exclusivas colecciones para novias y encuentra el vestido perfecto para tu día especial.</p>
-        <a href="/src/pages/productos.html" class="cta-button">Ver Colecciones</a>
+        <a href="../pages/productos.html" class="cta-button">Ver Colecciones</a>
     </section>
     <!-- Seccion de productos -->
     <div class="product-cards">
         <div class="product-card">
-            <img src="/src/assets/Cuautex-120.jpeg" alt="Producto 1">
+            <img src="../assets/Cuautex-120.jpeg" alt="Producto 1">
             <h2>Producto 1</h2>
             <p>Descripción breve del Producto 1.</p>
             <a href="#" class="product-link">Ver Detalles</a>
@@ -64,6 +61,7 @@
         <p>&copy; 2024 Aleana & Carlup</p>
     </footer>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="/src/scripts/slider.js"></script>
+    <script src="../scripts/slider.js"></script>
+    <script src="../scripts/menuDesplegable.js"></script>
 </body>
 </html>
