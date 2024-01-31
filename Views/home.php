@@ -62,10 +62,13 @@
 <br>
 <br>
     <section  <?= $data['page_id']; ?>>
-        <h1>Hola</h1>
+        <h1>Hola buenos</h1>
     </section>
+    <br><br>
+    <br>
+    <br>
 
-    <footer class="mt-5"> <!-- Agrega la clase 'mt-5' al footer para un margen superior de 5 unidades (puedes ajustar el valor según sea necesario) -->
+    <footer class="container mt-5 text-center"> <!-- Agrega la clase 'mt-5' al footer para un margen superior de 5 unidades (puedes ajustar el valor según sea necesario) -->
         <p>&copy; 2024 Aleana & Carlup</p>
     </footer>
     <!--Link de bootstrap para javaScript-->

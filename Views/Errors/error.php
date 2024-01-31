@@ -42,7 +42,7 @@
                 <h1 class="message__title">Página no encontrada</h1>
                 <p class="message__text">Lo sentimos, la página que estabas buscando no se encuentra aquí.
                     Es posible que el enlace que siguió esté roto o ya no exista.
-                    Inténtelo de nuevo o eche un vistazo a nuestra.
+                    
                 </p>
             </div>
             <div class="error__nav e-nav">
