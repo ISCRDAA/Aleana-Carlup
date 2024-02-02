@@ -499,8 +499,6 @@ button {
     body, html{
         max-height: 100vh;
     }
-        
-    
 
     .error__content {
         position: static;

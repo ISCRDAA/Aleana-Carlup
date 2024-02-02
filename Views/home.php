@@ -7,16 +7,17 @@
     <!--icono de la pagina en las pestaña del navegador -->
     <link rel="shortcut icon" href="../assets/iconoblanco.ico" />
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Raleway:500,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dancing+Script|Raleway:500,600&display=swap">
     <!--Link para los iconos-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-...." crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <!-- Materialize.css -->
     <link rel="stylesheet" href="<?= media(); ?>/css/materialize.min.css">
     <!-- CSS Estilos -->
-    <link rel="stylesheet" href="<?= media(); ?>/css/cssCarrusel.css">
+    <link rel="stylesheet" href="<?= media(); ?>/css/stiles.css">
     <!--Link para bootstrap-->
     <link rel="stylesheet" href="<?= media(); ?>/css/bootstrap.min.css">
     <title><?= $data['page_tag']; ?></title>
+    <link rel="icon" href="<?= media(); ?>/images/icono.ico" type="image/x-icon" />
 </head>
 
 <body>
@@ -72,42 +73,42 @@
     <div class="container_AC">
         <div class="row_AC">
             <div class="col_AC s12_AC">
-                <h1 class="center-align_AC titulo_AC">¿Que se te antoja hoy?</h1>
+                <h1 class="center-align_AC titulo_AC">Titulo_Principal</h1>
 
                 <div class="carousel center-align_AC">
 
                     <div class="carousel-item">
-                        <h2 class="subtitulo_AC">Donas</h2>
+                        <h2 class="subtitulo_AC">Titulo_Prenda</h2>
                         <div class="linea-division_AC"></div>
-                        <p class="sabor_AC">Glasseadas</p>
+                        <p class="sabor_AC">Modelo_Caracteristica</p>
                         <img src="<?= media(); ?>/images/uploads/Modelo31frente.jpeg" alt="">
                     </div>
 
                     <div class="carousel-item">
-                        <h2 class="subtitulo_AC">Pastel</h2>
+                        <h2 class="subtitulo_AC">Titulo_Prenda</h2>
                         <div class="linea-division_AC"></div>
-                        <p class="sabor_AC">Chocolate</p>
+                        <p class="sabor_AC">Modelo_Caracteristica</p>
                         <img src="<?= media(); ?>/images/uploads/Modelo32frente2.jpeg" alt="">
                     </div>
 
                     <div class="carousel-item">
-                        <h2 class="subtitulo_AC">Pastel2</h2>
+                        <h2 class="subtitulo_AC">Titulo_Prenda</h2>
                         <div class="linea-division_AC"></div>
-                        <p class="sabor_AC">Chocolate</p>
+                        <p class="sabor_AC">Modelo_Caracteristica</p>
                         <img src="<?= media(); ?>/images/uploads/Modelo35frente.jpeg" alt="">
                     </div>
 
                     <div class="carousel-item">
-                        <h2 class="subtitulo_AC">Pastel3</h2>
+                        <h2 class="subtitulo_AC">Titulo_Prenda</h2>
                         <div class="linea-division_AC"></div>
-                        <p class="sabor_AC">Chocolate</p>
+                        <p class="sabor_AC">Modelo_Caracteristica</p>
                         <img src="<?= media(); ?>/images/uploads/Modelo95frente2.jpeg" alt="">
                     </div>
 
                     <div class="carousel-item">
-                        <h2 class="subtitulo_AC">Pastel4</h2>
+                        <h2 class="subtitulo_AC">Titulo_Prenda</h2>
                         <div class="linea-division_AC"></div>
-                        <p class="sabor_AC">Chocolate</p>
+                        <p class="sabor_AC">Modelo_Caracteristica</p>
                         <img src="<?= media(); ?>/images/uploads/Modelo201frente.jpeg" alt="">
                     </div>
 
@@ -123,10 +124,59 @@
     <br><br>
     <br>
     <br>
-
-    <footer class="container mt-5 text-center"> <!-- Agrega la clase 'mt-5' al footer para un margen superior de 5 unidades (puedes ajustar el valor según sea necesario) -->
+    <!--
+    <footer class="container mt-5 text-center">  Agrega la clase 'mt-5' al footer para un margen superior de 5 unidades (puedes ajustar el valor según sea necesario)
         <p>&copy; 2024 Aleana & Carlup</p>
+    </footer> -->
+
+    <footer class="bg-body-tertiary text-center">
+        <!-- Grid container -->
+        <div class="container p-4 pb-0">
+            <!-- Section: Social media -->
+            <section class="mb-4">
+
+                <!-- Facebook -->
+                <a
+                    data-mdb-ripple-init
+                    class="btn text-white btn-floating m-1"
+                    style="background-color: #3b5998;"
+                    href="#!"
+                    role="button"
+                ><i class="fab fa-facebook-f rounded-circle"></i>
+                </a>
+
+                <!-- Instagram -->
+                <a
+                    data-mdb-ripple-init
+                    class="btn text-white btn-floating m-1"
+                    style="background-color: #ac2bac;"
+                    href="#!"
+                    role="button"
+                ><i class="fab fa-instagram"></i>
+                </a>
+
+                <!-- Twitter -->
+                <a
+                    data-mdb-ripple-init
+                    class="btn text-white btn-floating m-1"
+                    style="background-color: #55acee;"
+                    href="#!"
+                    role="button"
+                ><i class="fab fa-twitter"></i>
+                </a>
+
+            </section>
+            <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+            © 2023 Copyright: Aleana&Carlup
+        </div>
+        <!-- Copyright -->
     </footer>
+
     <!-- Materialize.js -->
     <script src="<?= media(); ?>/js/materialize.min.js"></script>
     <!-- Materialize.js -->
