@@ -6,10 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--icono de la pagina en las pestaña del navegador -->
     <link rel="shortcut icon" href="../assets/iconoblanco.ico" />
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Raleway:500,600&display=swap" rel="stylesheet">
     <!--Link para los iconos-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-...." crossorigin="anonymous" />
+    <!-- Materialize.css -->
+    <link rel="stylesheet" href="<?= media(); ?>/css/materialize.min.css">
+    <!-- CSS Estilos -->
+    <link rel="stylesheet" href="<?= media(); ?>/css/cssCarrusel.css">
     <!--Link para bootstrap-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="<?= media(); ?>/css/bootstrap.min.css">
     <title><?= $data['page_tag']; ?></title>
 </head>
 
@@ -17,7 +23,7 @@
     <header class="mb-5"> <!-- Agrega la clase 'mb-5' al body para un margen inferior de 5 unidades (puedes ajustar el valor según sea necesario) -->
         <nav class="navbar  bg-body-tertiary fixed-top">
             <div class="container-fluid bg-body">
-                <a class="mx-auto d-block" href="<?php base_url(); ?>"><img width="200px" class="mx-auto d-block" src="<?= media(); ?>images/logo3.jpeg" alt="Imagen logo"></a>
+                <a class="mx-auto d-block" href="<?php base_url(); ?>"><img width="200px" class="mx-auto d-block" src="<?= media(); ?>/images/logo3.jpeg" alt="Imagen logo"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -54,6 +60,7 @@
             </div>
         </nav>
     </header>
+
 <br>
 <br>
 <br>
@@ -61,6 +68,55 @@
 <br>
 <br>
 <br>
+
+    <div class="container_AC">
+        <div class="row_AC">
+            <div class="col_AC s12_AC">
+                <h1 class="center-align_AC titulo_AC">¿Que se te antoja hoy?</h1>
+
+                <div class="carousel center-align_AC">
+
+                    <div class="carousel-item">
+                        <h2 class="subtitulo_AC">Donas</h2>
+                        <div class="linea-division_AC"></div>
+                        <p class="sabor_AC">Glasseadas</p>
+                        <img src="<?= media(); ?>/images/uploads/Modelo31frente.jpeg" alt="">
+                    </div>
+
+                    <div class="carousel-item">
+                        <h2 class="subtitulo_AC">Pastel</h2>
+                        <div class="linea-division_AC"></div>
+                        <p class="sabor_AC">Chocolate</p>
+                        <img src="<?= media(); ?>/images/uploads/Modelo32frente2.jpeg" alt="">
+                    </div>
+
+                    <div class="carousel-item">
+                        <h2 class="subtitulo_AC">Pastel2</h2>
+                        <div class="linea-division_AC"></div>
+                        <p class="sabor_AC">Chocolate</p>
+                        <img src="<?= media(); ?>/images/uploads/Modelo35frente.jpeg" alt="">
+                    </div>
+
+                    <div class="carousel-item">
+                        <h2 class="subtitulo_AC">Pastel3</h2>
+                        <div class="linea-division_AC"></div>
+                        <p class="sabor_AC">Chocolate</p>
+                        <img src="<?= media(); ?>/images/uploads/Modelo95frente2.jpeg" alt="">
+                    </div>
+
+                    <div class="carousel-item">
+                        <h2 class="subtitulo_AC">Pastel4</h2>
+                        <div class="linea-division_AC"></div>
+                        <p class="sabor_AC">Chocolate</p>
+                        <img src="<?= media(); ?>/images/uploads/Modelo201frente.jpeg" alt="">
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
     <section  <?= $data['page_id']; ?>>
         <h1>Hola buenos</h1>
     </section>
@@ -71,7 +127,11 @@
     <footer class="container mt-5 text-center"> <!-- Agrega la clase 'mt-5' al footer para un margen superior de 5 unidades (puedes ajustar el valor según sea necesario) -->
         <p>&copy; 2024 Aleana & Carlup</p>
     </footer>
+    <!-- Materialize.js -->
+    <script src="<?= media(); ?>/js/materialize.min.js"></script>
+    <!-- Materialize.js -->
+    <script src="<?= media(); ?>/js/jsCarrusel.js"></script>
     <!--Link de bootstrap para javaScript-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="<?= media(); ?>/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

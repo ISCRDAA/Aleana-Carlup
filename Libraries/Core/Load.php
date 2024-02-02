@@ -1,4 +1,9 @@
 <?php
+    /**
+    * Archivo Load
+    *
+    * Este archivo contiene funciones para cargar controladores y ejecutar métodos asociados.
+    */
     $controller = ucwords($controller);
     $controllerFile = "Controllers/".$controller.".php";
     //echo $controllerFile;
