@@ -13,6 +13,8 @@
             $data['page_name'] = "home";
             $data['page_content'] = "Lorem hosolas dhoasdlasd hoasd lasdh asdasldlashdlhasjdhaskjdhaskhdkjashdasdl  akshdklas ";
             //echo "Mensaje desde el controlador";
+            // hacemos el llamado a la vista que queremos mostrar
+            // enviandole como parametro el arrary de datos $data
             $this -> views -> getView($this, "home",$data);
         }
     }

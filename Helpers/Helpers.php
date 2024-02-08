@@ -11,6 +11,20 @@
         return BASE_URL."/Assets";
     }
 
+    //Retorna la direccion de archivo header_admin
+    function headerAdmin($data="")
+    {
+        $view_header = "Views/Template/header_admin.php";
+        require_once ($view_header);
+    }
+
+    //Retorna la direccion de archivo footer_admin
+    function footerAdmin($data="")
+    {
+        $view_footer = "Views/Template/footer_admin.php";
+        require_once ($view_footer);
+    }
+
     //Muestra información formateada
 	function dep($data)
     {

@@ -3,21 +3,22 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="Aleana&Carlup">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--icono de la pagina en las pestaña del navegador -->
-    <link rel="shortcut icon" href="../assets/iconoblanco.ico" />
+    <meta name="author" content="Angel - Roberto">
+    <link rel="shortcut icon" href="<?= media(); ?>/images/icono.ico">
+    <title><?= $data['page_tag']; ?></title>
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dancing+Script|Raleway:500,600&display=swap">
     <!--Link para los iconos-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <!--Link para bootstrap-->
+    <link rel="stylesheet" href="<?= media(); ?>/css/bootstrap.min.css">
     <!-- Materialize.css -->
     <link rel="stylesheet" href="<?= media(); ?>/css/materialize.min.css">
     <!-- CSS Estilos -->
     <link rel="stylesheet" href="<?= media(); ?>/css/stiles.css">
-    <!--Link para bootstrap-->
-    <link rel="stylesheet" href="<?= media(); ?>/css/bootstrap.min.css">
-    <title><?= $data['page_tag']; ?></title>
-    <link rel="icon" href="<?= media(); ?>/images/icono.ico" type="image/x-icon" />
 </head>
 
 <body>
