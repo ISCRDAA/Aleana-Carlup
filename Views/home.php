@@ -81,7 +81,7 @@
                         <h2 class="subtitulo_AC">Titulo_Prenda</h2>
                         <div class="linea-division_AC"></div>
                         <p class="sabor_AC">Modelo_Caracteristica</p>
-                        <img src="<?= media(); ?>/images/uploads/Modelo31frente.jpeg" alt="">
+                        <img  src="<?= media(); ?>/images/uploads/Modelo31frente.jpeg" alt="">
                     </div>
 
                     <div class="carousel-item">
