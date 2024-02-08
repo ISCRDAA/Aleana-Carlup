@@ -118,16 +118,14 @@
         </div>
     </div>
 
-    <section  <?= $data['page_id']; ?>>
-        <h1>Hola buenos</h1>
+    <section  <?= $data['page_id']; ?> class="container">
+        <h1 class="titulo_AC">Hola buenos dias</h1>
     </section>
-    <br><br>
+
     <br>
     <br>
-    <!--
-    <footer class="container mt-5 text-center">  Agrega la clase 'mt-5' al footer para un margen superior de 5 unidades (puedes ajustar el valor según sea necesario)
-        <p>&copy; 2024 Aleana & Carlup</p>
-    </footer> -->
+    <br>
+    <br>
 
     <footer class="bg-body-tertiary text-center">
         <!-- Grid container -->
