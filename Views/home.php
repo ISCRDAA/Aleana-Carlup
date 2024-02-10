@@ -12,7 +12,7 @@
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dancing+Script|Raleway:500,600&display=swap">
     <!--Link para los iconos-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <!--Link para bootstrap-->
     <link rel="stylesheet" href="<?= media(); ?>/css/bootstrap.min.css">
     <!-- Materialize.css -->
@@ -48,7 +48,9 @@
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="<?php base_url(); ?>action">Action</a></li>
                                     <li><a class="dropdown-item" href="<?php base_url(); ?>otraaccion">Another action</a></li>
-                                    <li><hr class="dropdown-divider"></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
                                     <li><a class="dropdown-item" href="<?php base_url(); ?>otramas">Something else here</a></li>
                                 </ul>
                             </li>
@@ -63,13 +65,13 @@
         </nav>
     </header>
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 
     <div class="container_AC">
         <div class="row_AC">
@@ -82,7 +84,7 @@
                         <h2 class="subtitulo_AC">Titulo_Prenda</h2>
                         <div class="linea-division_AC"></div>
                         <p class="sabor_AC">Modelo_Caracteristica</p>
-                        <img  src="<?= media(); ?>/images/uploads/Modelo31frente.jpeg" alt="">
+                        <img src="<?= media(); ?>/images/uploads/Modelo31frente.jpeg" alt="">
                     </div>
 
                     <div class="carousel-item">
@@ -119,7 +121,7 @@
         </div>
     </div>
 
-    <section  <?= $data['page_id']; ?> class="container">
+    <section <?= $data['page_id']; ?> class="container">
         <h1 class="titulo_AC">Hola buenos dias</h1>
     </section>
 
@@ -129,51 +131,34 @@
     <br>
 
     <footer class="bg-body-tertiary text-center">
-        <!-- Grid container -->
-        <div class="container p-4 pb-0">
-            <!-- Section: Social media -->
-            <section class="mb-4">
+        <!--Grid container -->
+    <div class="container p-4 pb-0">
+        <!-- Section: Social media -->
+        <section class="mb-4">
 
-                <!-- Facebook -->
-                <a
-                    data-mdb-ripple-init
-                    class="btn text-white btn-floating m-1"
-                    style="background-color: #3b5998;"
-                    href="#!"
-                    role="button"
-                ><i class="fab fa-facebook-f rounded-circle"></i>
-                </a>
+            <!-- Facebook -->
+            <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #3b5998;" href="#!" role="button"><i class="fab fa-facebook-f rounded-circle"></i>
+            </a>
 
-                <!-- Instagram -->
-                <a
-                    data-mdb-ripple-init
-                    class="btn text-white btn-floating m-1"
-                    style="background-color: #ac2bac;"
-                    href="#!"
-                    role="button"
-                ><i class="fab fa-instagram"></i>
-                </a>
+            <!-- Instagram -->
+            <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #ac2bac;" href="#!" role="button"><i class="fab fa-instagram"></i>
+            </a>
 
-                <!-- Twitter -->
-                <a
-                    data-mdb-ripple-init
-                    class="btn text-white btn-floating m-1"
-                    style="background-color: #55acee;"
-                    href="#!"
-                    role="button"
-                ><i class="fab fa-twitter"></i>
-                </a>
+            <!-- Twitter -->
+            <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #55acee;" href="#!" role="button"><i class="fab fa-twitter"></i>
+            </a>
 
-            </section>
-            <!-- Section: Social media -->
-        </div>
-        <!-- Grid container -->
+        </section>
+        <!-- Section: Social media -->
+    </div>
+    <!-- Grid container -->
 
-        <!-- Copyright -->
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
-            © 2023 Copyright: Aleana&Carlup
-        </div>
-        <!-- Copyright -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+        © 2023 Copyright: Aleana&Carlup
+    </div>
+    <!-- Copyright -->
     </footer>
 
     <!-- Materialize.js -->
@@ -183,4 +168,5 @@
     <!--Link de bootstrap para javaScript-->
     <script src="<?= media(); ?>/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
