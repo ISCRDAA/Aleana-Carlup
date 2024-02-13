@@ -1,10 +1,12 @@
 <?php
     //define("BASE_URL", "http://localhost:8008/Angel/Aleana-Cartup/");
-    //const BASE_URL = "http://localhost:8008/Angel/Aleana-Carlup";
 	//const BASE_URL = "https://carlupyaleana.com.mx/";
-	
+
+	// url de Roberto
+	const BASE_URL = "http://localhost:8008/Angel/Aleana-Carlup";
+
 	// Url de Angel
-	const BASE_URL = "http://localhost:80/Aleana-Carlup";
+	//const BASE_URL = "http://localhost:80/Aleana-Carlup";
 
 	//Zona horaria
 	date_default_timezone_set('America/Mexico_City');

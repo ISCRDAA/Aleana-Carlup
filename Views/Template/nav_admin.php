@@ -21,8 +21,8 @@
 
                 <li class="treeview">
                     <a class="app-menu__item" href="#" data-toggle="treeview">
-                    <i class="fa fa-tags" aria-hidden="true"> </i>
-                        <span class="app-menu__label"> Modelos</span>
+                        <i class="app-menu__icon fa fa-tags" aria-hidden="true"></i>
+                        <span class="app-menu__label">Modelos</span>
                         <i class="treeview-indicator fa fa-angle-right"></i>
                     </a>
                     <ul class="treeview-menu">
@@ -35,7 +35,7 @@
 
                 <li class="treeview">
                     <a class="app-menu__item" href="#" data-toggle="treeview">
-                    <i class="fa fa-th" aria-hidden="true"></i>
+                        <i class="app-menu__icon fa fa-th" aria-hidden="true"></i>
                         <span class="app-menu__label"> Hilos</span>
                         <i class="treeview-indicator fa fa-angle-right"></i>
                     </a>
@@ -47,14 +47,14 @@
 
                 <li>
                     <a class="app-menu__item" href="<?= base_url(); ?>/produccion">
-                    <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                    <i class="app-menu__icon fa fa-bar-chart" aria-hidden="true"></i>
                         <span class="app-menu__label">Producción</span>
                     </a>
                 </li>
 
                 <li>
                     <a class="app-menu__item" href="<?= base_url(); ?>/orden">
-                    <i class="fa fa-check-square-o" aria-hidden="true"></i>
+                    <i class="app-menu__icon fa fa-check-square-o" aria-hidden="true"></i>
                         <span class="app-menu__label">Orden</span>
                     </a>
                 </li>
@@ -74,21 +74,21 @@
 
                 <li>
                     <a class="app-menu__item" href="<?= base_url(); ?>/clientes">
-                    <i class="fa fa-id-card-o" aria-hidden="true"></i>
+                    <i class="app-menu__icon fa fa-id-card-o" aria-hidden="true"></i>
                         <span class="app-menu__label">Clientes</span>
                     </a>
                 </li>
 
                 <li>
                     <a class="app-menu__item" href="<?= base_url(); ?>/productos">
-                    <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                    <i class="app-menu__icon fa fa-shopping-basket" aria-hidden="true"></i>
                         <span class="app-menu__label">Productos</span>
                     </a>
                 </li>
 
                 <li>
                     <a class="app-menu__item" href="<?= base_url(); ?>/pedidos">
-                    <i class="fa fa-cubes" aria-hidden="true"></i>
+                    <i class="app-menu__icon fa fa-cubes" aria-hidden="true"></i>
                         <span class="app-menu__label">Pedidos</span>
                     </a>
                 </li>
