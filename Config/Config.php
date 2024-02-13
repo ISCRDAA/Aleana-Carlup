@@ -8,7 +8,7 @@
 
     //Datos de conexión a Base de Datos
 	const DB_HOST = "162.241.61.205";
-	const DB_NAME = "carlupya_taller";
+	const DB_NAME = "carlupya_prueba";
 	const DB_USER = "carlupya_roberto";
 	const DB_PASSWORD = "i6qOqXp40pA";
     //const DB_PORT = "3308";
