@@ -1,21 +1,22 @@
-var tableRoles;
+var tableModelosprendas;
 
 document.addEventListener('DOMContentLoaded', function(){
 
-    tableRoles = $('#tableRoles').DataTable( {
+    tableModelosprendas = $('#tableModelosprendas').DataTable( {
         "aProcessing":true,
         "aServerSide":true,
         "language": {
             "url": "//cdn.datatables.net/plug-ins/1.10.20/i18n/Spanish.json"
         },
         "ajax": {
-            "url": " "+base_url+"/Roles/getRoles",
+            "url": " "+base_url+"/Modelosprendas/getModelosprendas",
             "dataSrc":""
         },
         "columns":[
-            {"data":"idrol"},
-            {"data":"nombrerol"},
-            {"data":"descripcion"},
+            {"data":"id_modelo"},
+            {"data":"nombre"},
+            {"data":"tipo_nombre"},
+            {"data":"peso_modelo"},
             {"data":"status"},
             {"data":"options"}
         ],
@@ -26,8 +27,4 @@ document.addEventListener('DOMContentLoaded', function(){
     });
 });
 
-$('#tableRoles').DataTable();
-
-function openModal() {
-    $('#modalFormRol').modal('show');
-}
+$('#tableModelosprendas').DataTable();

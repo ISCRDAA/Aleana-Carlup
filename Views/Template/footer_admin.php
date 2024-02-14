@@ -17,5 +17,9 @@
         <script type="text/javascript" src="<?= media(); ?>/js/plugins/dataTables.bootstrap.min.js"></script>
 
         <script src="<?= media(); ?>/js/functions_roles.js"></script>
+        <script src="<?= media(); ?>/js/functions_modelosprendas.js"></script>
+        <script src="<?= media(); ?>/js/functions_tipos.js"></script>
+        <script src="<?= media(); ?>/js/functions_coloresmodelos.js"></script>
+        <script src="<?= media(); ?>/js/functions_colores.js"></script>
     </body>
 </html>

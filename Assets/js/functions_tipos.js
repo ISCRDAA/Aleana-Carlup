@@ -1,21 +1,20 @@
-var tableRoles;
+var tableTipos;
 
 document.addEventListener('DOMContentLoaded', function(){
 
-    tableRoles = $('#tableRoles').DataTable( {
+    tableTipos = $('#tableTipos').DataTable( {
         "aProcessing":true,
         "aServerSide":true,
         "language": {
             "url": "//cdn.datatables.net/plug-ins/1.10.20/i18n/Spanish.json"
         },
         "ajax": {
-            "url": " "+base_url+"/Roles/getRoles",
+            "url": " "+base_url+"/Tipos/getTipos",
             "dataSrc":""
         },
         "columns":[
-            {"data":"idrol"},
-            {"data":"nombrerol"},
-            {"data":"descripcion"},
+            {"data":"id_tipo"},
+            {"data":"nombre"},
             {"data":"status"},
             {"data":"options"}
         ],
@@ -26,8 +25,4 @@ document.addEventListener('DOMContentLoaded', function(){
     });
 });
 
-$('#tableRoles').DataTable();
-
-function openModal() {
-    $('#modalFormRol').modal('show');
-}
+$('#tableTipos').DataTable();

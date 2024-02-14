@@ -26,7 +26,7 @@
                         <i class="treeview-indicator fa fa-angle-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a class="treeview-item" href="<?= base_url(); ?>/modelos"><i class="icon fa fa-circle-o"></i> Modelos</a></li>
+                        <li><a class="treeview-item" href="<?= base_url(); ?>/modelosprendas"><i class="icon fa fa-circle-o"></i> Modelos</a></li>
                         <li><a class="treeview-item" href="<?= base_url(); ?>/tipos"><i class="icon fa fa-circle-o"></i> Tipos</a></li>
                         <li><a class="treeview-item" href="<?= base_url(); ?>/coloresmodelos"><i class="icon fa fa-circle-o"></i> Colores de los Modelos</a></li>
                         <li><a class="treeview-item" href="<?= base_url(); ?>/colores"><i class="icon fa fa-circle-o"></i> Colores</a></li>

@@ -1,21 +1,20 @@
-var tableRoles;
+var tableColores;
 
 document.addEventListener('DOMContentLoaded', function(){
 
-    tableRoles = $('#tableRoles').DataTable( {
+    tableColores = $('#tableColores').DataTable( {
         "aProcessing":true,
         "aServerSide":true,
         "language": {
             "url": "//cdn.datatables.net/plug-ins/1.10.20/i18n/Spanish.json"
         },
         "ajax": {
-            "url": " "+base_url+"/Roles/getRoles",
+            "url": " "+base_url+"/Colores/getColores",
             "dataSrc":""
         },
         "columns":[
-            {"data":"idrol"},
-            {"data":"nombrerol"},
-            {"data":"descripcion"},
+            {"data":"id_color"},
+            {"data":"nombre_color"},
             {"data":"status"},
             {"data":"options"}
         ],
@@ -26,8 +25,4 @@ document.addEventListener('DOMContentLoaded', function(){
     });
 });
 
-$('#tableRoles').DataTable();
-
-function openModal() {
-    $('#modalFormRol').modal('show');
-}
+$('#tableColores').DataTable();

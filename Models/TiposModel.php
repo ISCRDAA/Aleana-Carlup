@@ -1,15 +1,15 @@
 <?php
-    class RolesModel extends Mysql
+    class TiposModel extends Mysql
     {
         public function __construct()
         {
             parent:: __construct();
         }
 
-        public function selectRoles()
+        public function selectTipos()
         {
-            // Extraer Roles
-            $sql = "SELECT * FROM z_rol WHERE status != 0";
+            // Extraer Tipos
+            $sql = "SELECT * FROM tipo WHERE status != 0;";
             $request = $this -> select_all($sql);
             return $request;
         }
