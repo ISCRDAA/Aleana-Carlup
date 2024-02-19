@@ -8,9 +8,9 @@
         public function colores()
         {
             $data['page_id'] = 6;
-            $data['page_tag'] = "Colores Modelos";
-            $data['page_name'] = "colores_modelos";
-            $data['page_title'] = "Colores Modelos <small>Aleana&Carlup</small>";
+            $data['page_tag'] = "Colores";
+            $data['page_name'] = "colores";
+            $data['page_title'] = "Colores <small>Aleana&Carlup</small>";
             // hacemos el llamado a la vista que queremos mostrar
             // enviandole como parametro el arrary de datos $data
             $this -> views -> getView($this, "colores",$data);
