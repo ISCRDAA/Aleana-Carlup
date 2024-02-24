@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="author" content="Angel - Roberto">
-        <meta name="theme-color" content="#009688">
+        <meta name="theme-color" content="#19A7CE">
         <link rel="shortcut icon" href="<?= media(); ?>/images/icono.ico">
         <title><?=$data['page_tag'];?></title>
         <!-- Main CSS-->

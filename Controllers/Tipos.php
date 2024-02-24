@@ -27,7 +27,7 @@
                 {
                     $arrData[$i]['status'] = '<span class="badge badge-success">Activo</span>';
                 }else{
-                    $arrData[$i]['status'] = '<span class="badge badge-danger">Danger</span>';
+                    $arrData[$i]['status'] = '<span class="badge badge-danger">Inactivo</span>';
                 }
 
                 $arrData[$i]['options'] = '<div class="text-center">
