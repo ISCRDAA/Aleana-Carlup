@@ -19,6 +19,15 @@
             return $request;
         }
 
+        public function selectRol(int $idrol)
+        {
+            // Buscar Rol
+            $this -> intIdrol = $idrol;
+            $sql = "SELECT * FROM z_rol WHERE idrol = $this->intIdrol";
+            $request = $this -> select($sql);
+            return $request;
+        }
+
         public function insertRol(string $rol, string $descripcion, int $status)
         {
             $return = "";
