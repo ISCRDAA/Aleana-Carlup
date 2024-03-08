@@ -11,7 +11,6 @@
             </div>
 
             <div class="modal-body">
-
                 <div class="tile">
                     <div class="tile-body">
                         <form id="formRol" name="formRol">
@@ -43,7 +42,6 @@
                         </form>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

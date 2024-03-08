@@ -61,13 +61,30 @@
         public function setRol ()
         {
             //dep($_POST);
+            $intIdrol = intval($_POST['idRol']);
             $strRol = strClean($_POST['txtNombre']);
             $strDescripcion = strClean($_POST['txtDescripcion']);
             $intStatus = intval($_POST['listStatus']);
-            $request_rol = $this -> model -> insertRol($strRol, $strDescripcion, $intStatus);
 
-            if ($request_rol > 0) {
-                $arrResponse = array('status' => true, 'msg' => 'Datos guardados correctamente.');
+            if ($intIdrol == 0)
+            {
+                // Crear
+                $request_rol = $this->model->insertRol($strRol, $strDescripcion, $intStatus);
+                $option = 1;
+            } else {
+                // Actualizar
+                $request_rol = $this->model->updateRol($intIdrol, $strRol, $strDescripcion, $intStatus);
+                $option = 2;
+            }
+
+            if ($request_rol > 0)
+            {
+                if ($option == 1)
+                {
+                    $arrResponse = array('status' => true, 'msg' => 'Datos Guardados correctamente.');
+                } else {
+                    $arrResponse = array('status' => true, 'msg' => 'Datos Actualizados correctamente.');
+                }
             } else if ($request_rol == 'exist') {
                 $arrResponse = array('status' => false, 'msg' => '¡Atención! El Rol ya existe.');
             } else {

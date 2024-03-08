@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function(){
     formRol.onsubmit = function(e) {
         e.preventDefault();
 
+        var intIdRol = document.querySelector('#idRol').value;
         var strNombre = document.querySelector('#txtNombre').value;
         var strDescripcion = document.querySelector('#txtDescripcion').value;
         var intStatus = document.querySelector('#listStatus').value;
@@ -41,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function(){
         var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
         var ajaxUrl = base_url+'/Roles/setRol';
         var formData = new FormData(formRol);
-        request.open("POST", ajaxUrl, true);
+        request.open("POST",ajaxUrl,true);
         request.send(formData);
         request.onreadystatechange = function() {
             if (request.readyState == 4 && request.status == 200){
@@ -52,7 +53,9 @@ document.addEventListener('DOMContentLoaded', function(){
                     $('#modalFormRol').modal('hide');
                     formRol.reset();
                     swal("Roles de usuario", objData.msg, "success");
-                    tableRoles.ajax.reload();
+                    tableRoles.ajax.reload(function(){
+                        fntEditRol();
+                    });
                 } else {
                     swal("Error", objData.msg, "error");
                 }
@@ -89,7 +92,44 @@ function fntEditRol(){
             document.querySelector('#btnActionForm').classList.replace("btn-primary", "btn-info");
             document.querySelector('#btnText').innerHTML = "Actualizar";
 
-            $('#modalFormRol').modal('show');
+            var idrol = this.getAttribute("rl");
+            var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+            var ajaxUrl = base_url+'/Roles/getRol/'+idrol;
+            request.open("GET",ajaxUrl,true);
+            request.send();
+
+            request.onreadystatechange = function(){
+                if (request.readyState == 4 && request.status == 200) {
+
+                    var objData = JSON.parse(request.responseText);
+
+                    if (objData.status)
+                    {
+                        document.querySelector("#idRol").value = objData.data.idrol;
+                        document.querySelector("#txtNombre").value = objData.data.nombrerol;
+                        document.querySelector("#txtDescripcion").value = objData.data.descripcion;
+
+                        if (objData.data.status == 1)
+                        {
+                            var optionSelect = '<option value="1" selected class="notblock">Activo</option>'
+                        } else {
+                            var optionSelect = '<option value="2" selected class="notblock">Inactivo</option>'
+                        }
+
+                        var htmlSelect = `${optionSelect}
+                                            <option value="1">Activo</option>
+                                            <option value="2">Inactivo</option>
+                                        `;
+
+                        document.querySelector('#listStatus').innerHTML = htmlSelect;
+                        $('#modalFormRol').modal('show');
+
+                    } else {
+                        swal("Error", objData.msg, "error");
+                    }
+                }
+            }
+
         });
     });
 }

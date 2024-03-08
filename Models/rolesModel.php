@@ -48,7 +48,26 @@
                 $return = "exist";
             }
             return $return;
+        }
 
+        public function updateRol(int $idrol, string $rol, string $descripcion, int $status){
+            $this->intIdrol = $idrol;
+            $this->strRol = $rol;
+            $this->strDescripcion = $descripcion;
+            $this->intStatus = $status;
+
+            $sql = "SELECT * FROM z_rol WHERE nombrerol = '$this->strRol' AND idrol != $this->intIdrol";
+            $request = $this->select_all($sql);
+
+            if (empty($request))
+            {
+                $sql = "UPDATE z_rol SET nombrerol = ?, descripcion = ?, status = ? WHERE idrol = $this->intIdrol";
+                $arrData = array($this->strRol, $this->strDescripcion, $this->intStatus);
+                $request = $this->update($sql, $arrData);
+            } else {
+                $request = "exist";
+            }
+            return $request;
         }
     }
 ?>
