@@ -69,5 +69,27 @@
             }
             return $request;
         }
+
+        public function deleteRol(int $idrol)
+        {
+            $this->intIdrol = $idrol;
+            $sql = "SELECT * FROM z_persona WHERE rolid = $this->intIdrol";
+            $request = $this->select_all($sql);
+            if(empty($request))
+            {
+                $sql = "UPDATE z_rol SET status = ? WHERE idrol = $this->intIdrol";
+                $arrData = array(0);
+                $request = $this->update($sql, $arrData);
+                if($request)
+                {
+                    $request = 'ok';
+                }else{
+                    $request = 'error';
+                }
+            }else{
+                $request = 'exist';
+            }
+            return $request;
+        }
     }
 ?>

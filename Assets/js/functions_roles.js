@@ -80,6 +80,7 @@ function openModal() {
 
 window.addEventListener('load', function(){
     fntEditRol();
+    fntDelRol();
 }, false);
 
 function fntEditRol(){
@@ -129,6 +130,53 @@ function fntEditRol(){
                     }
                 }
             }
+
+        });
+    });
+}
+
+function fntDelRol(){
+    var btnDelRol = document.querySelectorAll(".btnDelRol");
+    btnDelRol.forEach(function(btnDelRol) {
+        btnDelRol.addEventListener('click', function(){
+            var idrol = this.getAttribute("rl")
+            //alert(idrol);
+
+            swal({
+                title: "Eliminar Rol",
+                text: "¿Realmente quiere eliminar el Rol?",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Si, eliminar!",
+                cancelButtonText: "No, cancelar!",
+                closeOnConfirm: false,
+                closeOnCancel: true
+            }, function(isConfirm) {
+                if (isConfirm)
+                {
+                    var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+                    var ajaxUrl = base_url+'/Roles/delRol';
+                    var strData = "idrol="+idrol;
+                    request.open("POST",ajaxUrl,true);
+                    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                    request.send(strData);
+                    request.onreadystatechange = function(){
+                        if (request.readyState == 4 && request.status == 200) {
+                            var objData = JSON.parse(request.responseText);
+                            if (objData.status)
+                            {
+                                swal("Eliminar!", objData.msg, "success");
+                                tableRoles.ajax.reload(function(){
+                                    fntEditRol();
+                                    fntDelRol();
+                                });
+                            } else {
+                                swal("Atención!", objData.msg, "error");
+                            }
+                        }
+                    }
+                }
+            });
 
         });
     });
