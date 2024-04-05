@@ -6,7 +6,8 @@ document.addEventListener('DOMContentLoaded', function(){
         "aProcessing":true,
         "aServerSide":true,
         "language": {
-            "url": "//cdn.datatables.net/plug-ins/1.10.20/i18n/Spanish.json"
+            //"url": "//cdn.datatables.net/plug-ins/1.10.20/i18n/Spanish.json"
+            "url": " "+media_url+"/js/languageSpanish.json"
         },
         "ajax": {
             "url": " "+base_url+"/Roles/getRoles",
@@ -81,6 +82,7 @@ function openModal() {
 window.addEventListener('load', function(){
     fntEditRol();
     fntDelRol();
+    ftnPermisos();
 }, false);
 
 function fntEditRol(){
@@ -177,6 +179,29 @@ function fntDelRol(){
                     }
                 }
             });
+
+        });
+    });
+}
+
+function ftnPermisos(){
+    var btnPermisosRol = document.querySelectorAll(".btnPermisosRol");
+    btnPermisosRol.forEach(function(btnPermisosRol) {
+        btnPermisosRol.addEventListener('click', function(){
+
+            var idrol = this.getAttribute("rl");
+            var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+            var ajaxUrl = base_url+'/Permisos/getPermisosRol/'+idrol;
+            request.open("GET",ajaxUrl,true);
+            request.send();
+
+            request.onreadystatechange = function(){
+                if(request.readyState == 4 && request.status == 200){
+                    console.log(request.responseText)
+                    document.querySelector('#contentAjax').innerHTML = request.responseText;
+                    $('.modalPermisos').modal('show');
+                }
+            }
 
         });
     });

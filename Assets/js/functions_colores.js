@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function(){
         "aProcessing":true,
         "aServerSide":true,
         "language": {
-            "url": "//cdn.datatables.net/plug-ins/1.10.20/i18n/Spanish.json"
+            "url": " "+media_url+"/js/languageSpanish.json"
         },
         "ajax": {
             "url": " "+base_url+"/Colores/getColores",
