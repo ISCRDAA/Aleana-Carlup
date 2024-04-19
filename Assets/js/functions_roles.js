@@ -56,6 +56,8 @@ document.addEventListener('DOMContentLoaded', function(){
                     swal("Roles de usuario", objData.msg, "success");
                     tableRoles.ajax.reload(function(){
                         fntEditRol();
+                        fntDelRol();
+                        ftnPermisos();
                     });
                 } else {
                     swal("Error", objData.msg, "error");
@@ -171,6 +173,7 @@ function fntDelRol(){
                                 tableRoles.ajax.reload(function(){
                                     fntEditRol();
                                     fntDelRol();
+                                    ftnPermisos();
                                 });
                             } else {
                                 swal("Atención!", objData.msg, "error");
@@ -197,12 +200,34 @@ function ftnPermisos(){
 
             request.onreadystatechange = function(){
                 if(request.readyState == 4 && request.status == 200){
-                    console.log(request.responseText)
                     document.querySelector('#contentAjax').innerHTML = request.responseText;
                     $('.modalPermisos').modal('show');
+                    document.querySelector('#formPermisos').addEventListener('submit', fntSavePermisos,false);
                 }
             }
 
         });
     });
+}
+
+function fntSavePermisos(evnet){
+    evnet.preventDefault();
+    var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+    var ajaxUrl = base_url+'/Permisos/setPermisos';
+    var formElement = document.querySelector("#formPermisos");
+    var formData = new FormData(formElement);
+    request.open("POST",ajaxUrl,true);
+    request.send(formData);
+
+    request.onreadystatechange = function(){
+        if(request.readyState == 4 && request.status == 200){
+            var objData = JSON.parse(request.responseText);
+            if(objData.status)
+            {
+                swal("Permisos de usuario", objData.msg, "success");
+            }else{
+                swal("Error", objData.msg, "error");
+            }
+        }
+    }
 }

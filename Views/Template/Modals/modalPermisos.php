@@ -16,14 +16,15 @@
                 <div class="col-md-12">
                     <div class="tile">
                         <form action="" id="formPermisos" name="formPermisos">
+                            <input type="hidden" id="idrol" name="idrol" value="<?= $data['idrol']; ?>" required="">
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead>
                                         <tr>
                                             <th>#</th>
                                             <th>Módulos</th>
-                                            <th>Leer</th>
-                                            <th>Escribir</th>
+                                            <th>Ver</th>
+                                            <th>Crear</th>
                                             <th>Actualizar</th>
                                             <th>Eliminar</th>
                                         </tr>
