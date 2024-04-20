@@ -1,8 +1,7 @@
-    <?php
+<?php
         headerAdmin($data);
-        getModal('modalRoles', $data);
+        //getModal('modalRoles', $data);
     ?>
-        <div id="contentAjax"></div>
         <main class="app-content">
             <div class="app-title">
                 <div>
@@ -22,17 +21,28 @@
                     <div class="tile">
                         <div class="tile-body">
                             <div class="table-responsive">
-                                <table class="table table-hover table-bordered" id="tableRoles">
+                                <table class="table table-hover table-bordered" id="tableUsuarios">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Nombre</th>
-                                            <th>Descripción</th>
+                                            <th>Nombres</th>
+                                            <th>Apellidos</th>
+                                            <th>Emails</th>
+                                            <th>Teléfonos</th>
+                                            <th>Rol</th>
                                             <th>Status</th>
                                             <th>Acciones</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <td>1</td>
+                                        <td>Roberto</td>
+                                        <td>Colorado</td>
+                                        <td>roberto@gmail.com</td>
+                                        <td>7894561230</td>
+                                        <td>Administrador</td>
+                                        <td>Activo</td>
+                                        <td></td>
                                     </tbody>
                                 </table>
                             </div>
