@@ -26,3 +26,15 @@ document.addEventListener('DOMContentLoaded', function(){
 });
 
 $('#tableColores').DataTable();
+
+function openModal() {
+
+    document.querySelector('#idColor').value = "";
+    document.querySelector('.modal-header').classList.replace("headerUpdate", "headerRegister");
+    document.querySelector('#btnActionForm').classList.replace("btn-info", "btn-primary");
+    document.querySelector('#btnText').innerHTML = "Guardar";
+    document.querySelector('#titleModal').innerHTML = "Nuevo Color";
+    document.querySelector('#formColor').reset();
+
+    $('#modalFormColor').modal('show');
+}

@@ -1,6 +1,6 @@
 <?php
         headerAdmin($data);
-        //getModal('modalRoles', $data);
+        getModal('modalModelosPrendas', $data);
     ?>
         <main class="app-content">
             <div class="app-title">
@@ -24,7 +24,7 @@
                                 <table class="table table-hover table-bordered" id="tableModelosprendas">
                                     <thead>
                                         <tr>
-                                            <th>id</th>
+                                            <th>ID</th>
                                             <th>Nombre</th>
                                             <th>Tipo</th>
                                             <th>Peso</th>

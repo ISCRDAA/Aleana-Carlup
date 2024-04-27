@@ -26,3 +26,15 @@ document.addEventListener('DOMContentLoaded', function(){
 });
 
 $('#tableTipos').DataTable();
+
+function openModal() {
+
+    document.querySelector('#idTipo').value = "";
+    document.querySelector('.modal-header').classList.replace("headerUpdate", "headerRegister");
+    document.querySelector('#btnActionForm').classList.replace("btn-info", "btn-primary");
+    document.querySelector('#btnText').innerHTML = "Guardar";
+    document.querySelector('#titleModal').innerHTML = "Nuevo Tipo";
+    document.querySelector('#formTipo').reset();
+
+    $('#modalFormTipo').modal('show');
+}

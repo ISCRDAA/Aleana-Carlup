@@ -1,6 +1,6 @@
 <?php
         headerAdmin($data);
-        //getModal('modalRoles', $data);
+        getModal('modalColoresModelos', $data);
     ?>
         <main class="app-content">
             <div class="app-title">

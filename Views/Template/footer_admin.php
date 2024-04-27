@@ -18,10 +18,23 @@
         <script type="text/javascript" src="<?= media(); ?>/js/plugins/jquery.dataTables.min.js"></script>
         <script type="text/javascript" src="<?= media(); ?>/js/plugins/dataTables.bootstrap.min.js"></script>
 
+        <?php if ($data['page_name'] == "rol_usuario") { ?>
         <script src="<?= media(); ?>/js/functions_roles.js"></script>
+        <?php } ?>
+        <?php if ($data['page_name'] == "usuarios") { ?>
+        <script src="<?= media(); ?>/js/functions_usuarios.js"></script>
+        <?php } ?>
+        <?php if ($data['page_name'] == "modelo_prendas") { ?>
         <script src="<?= media(); ?>/js/functions_modelosprendas.js"></script>
+        <?php } ?>
+        <?php if ($data['page_name'] == "tipos") { ?>
         <script src="<?= media(); ?>/js/functions_tipos.js"></script>
+        <?php } ?>
+        <?php if ($data['page_name'] == "colores_modelos") { ?>
         <script src="<?= media(); ?>/js/functions_coloresmodelos.js"></script>
+        <?php } ?>
+        <?php if ($data['page_name'] == "colores") { ?>
         <script src="<?= media(); ?>/js/functions_colores.js"></script>
+        <?php } ?>
     </body>
 </html>
