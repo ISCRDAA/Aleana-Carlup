@@ -36,5 +36,11 @@
         <?php if ($data['page_name'] == "colores") { ?>
         <script src="<?= media(); ?>/js/functions_colores.js"></script>
         <?php } ?>
+        <?php if ($data['page_name'] == "hiloscaja") { ?>
+        <script src="<?= media(); ?>/js/functions_hiloscaja.js"></script>
+        <?php } ?>
+        <?php if ($data['page_name'] == "hiloscostal") { ?>
+        <script src="<?= media(); ?>/js/functions_hiloscostal.js"></script>
+        <?php } ?>
     </body>
 </html>
