@@ -28,6 +28,41 @@ document.addEventListener('DOMContentLoaded', function(){
 
 $('#tableColoresmodelos').DataTable();
 
+window.addEventListener('load', function() {
+    fntColores();
+    fntModelosPrendas();
+}, false);
+
+function fntColores(){
+    var ajaxUrl = base_url+'/Colores/getSelectColores';
+    var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+    request.open("GET",ajaxUrl,true);
+    request.send();
+
+    request.onreadystatechange = function(){
+        if (request.readyState == 4 && request.status == 200) {
+            document.querySelector('#listColor').innerHTML = request.responseText;
+            document.querySelector('#listColor').value = 1;
+            $('#listColor').selectpicker('render');
+        }
+    }
+}
+
+function fntModelosPrendas(){
+    var ajaxUrl = base_url+'/Modelosprendas/getSelectModelosPrendas';
+    var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+    request.open("GET",ajaxUrl,true);
+    request.send();
+
+    request.onreadystatechange = function(){
+        if (request.readyState == 4 && request.status == 200) {
+            document.querySelector('#listModelo').innerHTML = request.responseText;
+            document.querySelector('#listModelo').value = 1;
+            $('#listModelo').selectpicker('render');
+        }
+    }
+}
+
 function openModal() {
 
     document.querySelector('#idColorModelo').value = "";

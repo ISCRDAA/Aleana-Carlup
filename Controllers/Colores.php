@@ -40,5 +40,18 @@
             echo json_encode($arrData, JSON_UNESCAPED_UNICODE);
             die();
         }
+
+        public function getSelectColores()
+        {
+            $htmlOptions = "";
+            $arrData = $this->model->selectColores();
+            if(count($arrData) > 0){
+                for ($i=0; $i < count($arrData); $i++) {
+                    $htmlOptions .= '<option value="'.$arrData[$i]['id_color'].'">'.$arrData[$i]['nombre_color'].'</option>';
+                }
+            }
+            echo $htmlOptions;
+            die();
+        }
     }
 ?>

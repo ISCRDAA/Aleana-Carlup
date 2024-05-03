@@ -40,5 +40,18 @@
             echo json_encode($arrData, JSON_UNESCAPED_UNICODE);
             die();
         }
+
+        public function getSelectModelosPrendas()
+        {
+            $htmlOptions = "";
+            $arrData = $this->model->selectModelosprendas();
+            if(count($arrData) > 0){
+                for ($i=0; $i < count($arrData); $i++) {
+                    $htmlOptions .= '<option value="'.$arrData[$i]['id_modelo'].'">'.$arrData[$i]['nombre'].'</option>';
+                }
+            }
+            echo $htmlOptions;
+            die();
+        }
     }
 ?>

@@ -18,7 +18,7 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="listColor">Color</label>
-                            <select class="form-control" id="listColor" name="listColor" required="">
+                            <select class="form-control" data-live-search="true" id="listColor" name="listColor" required="">
                             </select>
                         </div>
                         <div class="form-group col-md-6">
@@ -34,7 +34,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="listTipo">Tipo</label>
-                            <select class="form-control" id="listTipo" name="listTipo" required="">
+                            <select class="form-control" data-live-search="true" id="listTipo" name="listTipo" required="">
                             </select>
                         </div>
                     </div>
@@ -66,7 +66,7 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="listStatus">Status</label>
-                            <select class="form-control" id="listStatus" name="listStatus" required="">
+                            <select class="form-control selectpicker" id="listStatus" name="listStatus" required="">
                                 <option value="1">Activo</option>
                                 <option value="2">Inactivo</option>
                             </select>

@@ -40,5 +40,18 @@
             echo json_encode($arrData, JSON_UNESCAPED_UNICODE);
             die();
         }
+
+        public function getSelectTipos()
+        {
+            $htmlOptions = "";
+            $arrData = $this->model->selectTipos();
+            if(count($arrData) > 0){
+                for ($i=0; $i < count($arrData); $i++) {
+                    $htmlOptions .= '<option value="'.$arrData[$i]['id_tipo'].'">'.$arrData[$i]['nombre'].'</option>';
+                }
+            }
+            echo $htmlOptions;
+            die();
+        }
     }
 ?>
