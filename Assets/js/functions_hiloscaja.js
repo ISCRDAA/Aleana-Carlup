@@ -1,3 +1,39 @@
+var tableHilosCaja;
+
+document.addEventListener('DOMContentLoaded', function(){
+
+    tableHilosCaja = $('#tableHilosCaja').DataTable( {
+        "aProcessing":true,
+        "aServerSide":true,
+        "language": {
+            "url": " "+media_url+"/js/languageSpanish.json"
+        },
+        "ajax": {
+            "url": " "+base_url+"/Hiloscaja/getHilosCaja",
+            "dataSrc":""
+        },
+        "columns":[
+            {"data":"id_hilo_caja"},
+            {"data":"nombre_color"},
+            {"data":"marca"},
+            {"data":"tenida"},
+            {"data":"nombre_tipo"},
+            {"data":"cantidad_de_cajas"},
+            {"data":"cantidad_de_conos"},
+            {"data":"peso_total"},
+            {"data":"tipo_empaquetado"},
+            {"data":"status"},
+            {"data":"options"}
+        ],
+        "resonsieve":"true",
+        "bDestroy": true,
+        "iDisplayLength": 10,
+        "order":[[0,"desc"]]
+    });
+});
+
+$('#tableHilosCaja').DataTable();
+
 window.addEventListener('load', function() {
     fntColores();
     fntTiposPrendas();

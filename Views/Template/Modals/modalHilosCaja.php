@@ -57,7 +57,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="listTipoEmpaquetado">Tipo de empaquetado</label>
-                            <select class="form-control" id="listTipoEmpaquetado" name="listTipoEmpaquetado" required="">
+                            <select class="form-control selectpicker" id="listTipoEmpaquetado" name="listTipoEmpaquetado" required="">
                                 <option value="Caja">Caja</option>
                             </select>
                         </div>

@@ -21,11 +21,12 @@
                     <div class="tile">
                         <div class="tile-body">
                             <div class="table-responsive">
-                                <table class="table table-hover table-bordered" id="tableUsuarios">
+                                <table class="table table-hover table-bordered" id="tableHilosCaja">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
                                             <th>Color</th>
+                                            <th>Marca</th>
                                             <th>Teñida</th>
                                             <th>Tipo</th>
                                             <th>Cantidad de cajas</th>
@@ -39,6 +40,7 @@
                                     <tbody>
                                         <td>1</td>
                                         <td>Negro</td>
+                                        <td>Hola marca</td>
                                         <td>123465</td>
                                         <td>Viscosa</td>
                                         <td>5</td>

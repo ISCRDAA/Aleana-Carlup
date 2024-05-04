@@ -1,3 +1,39 @@
+var tableHilosCostal;
+
+document.addEventListener('DOMContentLoaded', function(){
+
+    tableHilosCostal = $('#tableHilosCostal').DataTable( {
+        "aProcessing":true,
+        "aServerSide":true,
+        "language": {
+            "url": " "+media_url+"/js/languageSpanish.json"
+        },
+        "ajax": {
+            "url": " "+base_url+"/Hiloscostal/getHilosCostal",
+            "dataSrc":""
+        },
+        "columns":[
+            {"data":"id_hilo_costal"},
+            {"data":"nombre_color"},
+            {"data":"marca"},
+            {"data":"tenida"},
+            {"data":"nombre_tipo"},
+            {"data":"cantidad_de_cajas"},
+            {"data":"cantidad_de_conos"},
+            {"data":"peso_total"},
+            {"data":"tipo_empaquetado"},
+            {"data":"status"},
+            {"data":"options"}
+        ],
+        "resonsieve":"true",
+        "bDestroy": true,
+        "iDisplayLength": 10,
+        "order":[[0,"desc"]]
+    });
+});
+
+$('#tableHilosCostal').DataTable();
+
 window.addEventListener('load', function() {
     fntColores();
     fntTiposPrendas();
