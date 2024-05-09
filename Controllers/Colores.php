@@ -53,5 +53,13 @@
             echo $htmlOptions;
             die();
         }
+
+        public function setColor()
+        {
+            if ($_POST) {
+                dep($_POST);
+            }
+            die();
+        }
     }
 ?>

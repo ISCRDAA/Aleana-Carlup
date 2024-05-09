@@ -53,5 +53,12 @@
             echo $htmlOptions;
             die();
         }
+
+        public function setModeloprenda(){
+            if ($_POST) {
+                dep($_POST);
+            }
+            die();
+        }
     }
 ?>

@@ -40,5 +40,13 @@
             echo json_encode($arrData, JSON_UNESCAPED_UNICODE);
             die();
         }
+
+        public function setHilocaja()
+        {
+            if ($_POST) {
+                dep($_POST);
+            }
+            die();
+        }
     }
 ?>

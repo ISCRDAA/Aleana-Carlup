@@ -23,7 +23,26 @@ document.addEventListener('DOMContentLoaded', function(){
         "iDisplayLength": 10,
         "order":[[0,"desc"]]
     });
-});
+
+    // NUEVO TIPO
+    var formTipo = document.querySelector("#formTipo");
+    formTipo.onsubmit = function(e){
+        e.preventDefault();
+        var strTipo = document.querySelector('#txtTipo').value;
+
+        if (strTipo == '') {
+            swal("Atención", "Todos los campos son obligatorios.", "error");
+            return false;
+        }
+
+        var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+        var ajaxUrl = base_url+'/Tipos/setTipo';
+        var formData = new FormData(formTipo);
+        request.open("POST",ajaxUrl,true);
+        request.send(formData);
+
+    }
+}, false);
 
 $('#tableTipos').DataTable();
 

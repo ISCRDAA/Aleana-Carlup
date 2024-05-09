@@ -30,7 +30,32 @@ document.addEventListener('DOMContentLoaded', function(){
         "iDisplayLength": 10,
         "order":[[0,"desc"]]
     });
-});
+
+    // NUEVO HILO POR CAJA
+    var formHilocaja = document.querySelector("#formHilosCaja");
+    formHilocaja.onsubmit = function(e){
+        e.preventDefault();
+        var intColor = document.querySelector('#listColor').value;
+        var strMarca = document.querySelector('#txtMarca').value;
+        var strTenida = document.querySelector('#txtTenida').value;
+        var intTipo = document.querySelector('#listTipo').value;
+        var intCantidadcajas = document.querySelector('#txtCantidadCajas').value;
+        var intCantidadconos = document.querySelector('#txtCantidadConos').value;
+        var intPesototal = document.querySelector('#txtPesoTotal').value;
+
+        if (intColor == '' || strMarca == '' || strTenida == '' || intTipo == '' || intCantidadcajas == '' || intCantidadconos == '' || intPesototal == '') {
+            swal("Atención", "Todos los campos son obligatorios.", "error");
+            return false;
+        }
+
+        var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+        var ajaxUrl = base_url+'/Hiloscaja/setHilocaja';
+        var formData = new FormData(formHilocaja);
+        request.open("POST",ajaxUrl,true);
+        request.send(formData);
+
+    }
+}, false);
 
 $('#tableHilosCaja').DataTable();
 

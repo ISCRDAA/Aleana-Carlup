@@ -25,7 +25,30 @@ document.addEventListener('DOMContentLoaded', function(){
         "iDisplayLength": 10,
         "order":[[0,"desc"]]
     });
-});
+
+    // NUEVO MODELO DE PRENDA
+    var formModeloprenda = document.querySelector("#formModeloPrenda");
+    formModeloprenda.onsubmit = function(e){
+        e.preventDefault();
+
+        var strNombre = document.querySelector('#txtNombre').value;
+        var intTipo = document.querySelector('#listTipo').value;
+        var intPeso = document.querySelector('#txtPeso').value;
+
+        if (strNombre == '' || intTipo == '' || intPeso == '')
+        {
+            swal("Atención", "Todos los campos son obligatorios.", "error");
+            return false;
+        }
+
+        var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+        var ajaxUrl = base_url+'/Modelosprendas/setModeloprenda';
+        var formData = new FormData(formModeloprenda);
+        request.open("POST",ajaxUrl,true);
+        request.send(formData);
+    }
+
+}, false);
 
 $('#tableModelosprendas').DataTable();
 

@@ -24,7 +24,26 @@ document.addEventListener('DOMContentLoaded', function(){
         "iDisplayLength": 10,
         "order":[[0,"desc"]]
     });
-});
+
+    // NUEVO COLOR ED MODELO
+    var formColormodelo = document.querySelector("#formColorModelo");
+    formColormodelo.onsubmit = function(e){
+        e.preventDefault();
+        var intColor  = document.querySelector('#listColor').value;
+        var intModelo = document.querySelector('#listModelo').value;
+
+        if (intColor == '' || intModelo == '') {
+            swal("Atención", "Todos los campos son obligatorios.", "error");
+            return false;
+        }
+
+        var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+        var ajaxUrl= base_url+'/ColoresModelos/setColormodelo'
+        var formData = new FormData(formColormodelo);
+        request.open("POST",ajaxUrl,true);
+        request.send(formData);
+    }
+}, false);
 
 $('#tableColoresmodelos').DataTable();
 

@@ -15,5 +15,12 @@
             // enviandole como parametro el arrary de datos $data
             $this -> views -> getView($this, "usuarios",$data);
         }
+
+        public function setUsuario(){
+            if ($_POST) {
+                dep($_POST);
+            }
+            die();
+        }
     }
 ?>

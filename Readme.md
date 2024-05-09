@@ -16,10 +16,11 @@ Aleana&Carlup es un proyecto desarrollado para una empresa suéterera, diseñado
 *   JSON
 *   MySQL
 
-## Plugins Utilizados
+## Plugins/Librerias Utilizados
 ----------------------
 
 *   Data Tables
+*   Bootstrap Select
 
 ## Estructura del Proyecto
 -----------------------

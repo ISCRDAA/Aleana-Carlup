@@ -23,7 +23,25 @@ document.addEventListener('DOMContentLoaded', function(){
         "iDisplayLength": 10,
         "order":[[0,"desc"]]
     });
-});
+
+    // NUEVO COLOR
+    var formColor = document.querySelector("#formColor");
+    formColor.onsubmit = function(e){
+        e.preventDefault();
+        var strNombre = document.querySelector('#txtNombre').value;
+
+        if (strNombre == '') {
+            swal("Atención", "Todos los campos son obligatorios.", "error");
+            return false;
+        }
+
+        var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+        var ajaxUrl = base_url+'/Colores/setColor';
+        var formData = new FormData(formColor);
+        request.open("POST",ajaxUrl,true);
+        request.send(formData);
+    }
+}, false);
 
 $('#tableColores').DataTable();
 
