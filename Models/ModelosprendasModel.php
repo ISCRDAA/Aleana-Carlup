@@ -1,6 +1,12 @@
 <?php
     class ModelosprendasModel extends Mysql
     {
+        private $intIdModeloPrenda;
+        private $strNombre;
+        private $intTipo;
+        private $intPeso;
+        private $intStatus;
+
         public function __construct()
         {
             parent:: __construct();
@@ -21,6 +27,32 @@
                         tipo ON modelo.tipo_id = tipo.id_tipo;";
             $request = $this -> select_all($sql);
             return $request;
+        }
+
+        public function insertModeloprenda(string $nombre, int $tipo, int $peso, $status)
+        {
+            $this->strNombre = $nombre;
+            $this->intTipo = $tipo;
+            $this->intPeso = $peso;
+            $this->intStatus = $status;
+            $return = 0;
+
+            $sql = "SELECT * FROM modelo WHERE nombre = '{$this->strNombre}'";
+            $request = $this->select_all($sql);
+
+            if (empty($request))
+            {
+                $query_insert = "INSERT INTO modelo(nombre,tipo_id,peso_modelo,status) VALUES (?,?,?,?)";
+                $arrData = array($this->strNombre,
+                                $this->intTipo,
+                                $this->intPeso,
+                                $this->intStatus);
+                $request_insert = $this->insert($query_insert,$arrData);
+                $return = $request_insert;
+            }else{
+                $return = "exist";
+            }
+            return $return;
         }
     }
 ?>

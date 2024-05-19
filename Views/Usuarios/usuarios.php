@@ -27,8 +27,8 @@
                                             <th>ID</th>
                                             <th>Nombres</th>
                                             <th>Apellidos</th>
-                                            <th>Emails</th>
                                             <th>Teléfonos</th>
+                                            <th>Emails</th>
                                             <th>Rol</th>
                                             <th>Status</th>
                                             <th>Acciones</th>

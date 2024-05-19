@@ -1,5 +1,34 @@
+var tableUsuarios;
+
 document.addEventListener('DOMContentLoaded', function(){
 
+    tableUsuarios = $('#tableUsuarios').DataTable( {
+        "aProcessing":true,
+        "aServerSide":true,
+        "language": {
+            "url": " "+media_url+"/js/languageSpanish.json"
+        },
+        "ajax": {
+            "url": " "+base_url+"/Usuarios/getUsuarios",
+            "dataSrc":""
+        },
+        "columns":[
+            {"data":"idpersona"},
+            {"data":"nombres"},
+            {"data":"apellidos"},
+            {"data":"telefono"},
+            {"data":"email_user"},
+            {"data":"nombrerol"},
+            {"data":"status"},
+            {"data":"options"}
+        ],
+        "resonsieve":"true",
+        "bDestroy": true,
+        "iDisplayLength": 10,
+        "order":[[0,"desc"]]
+    });
+
+    // NUEVO USUARIO
     var formUsuario = document.querySelector("#formUsuario");
     formUsuario.onsubmit = function(e){
         e.preventDefault();
@@ -22,6 +51,22 @@ document.addEventListener('DOMContentLoaded', function(){
         var formData = new FormData(formUsuario);
         request.open("POST",ajaxUrl,true)
         request.send(formData);
+        request.onreadystatechange = function(){
+            if (request.readyState == 4 && request.status == 200) {
+                var objData = JSON.parse(request.responseText);
+                if (objData.status)
+                {
+                    $('#modalFormUsuario').modal("hide");
+                    formUsuario.reset();
+                    swal("Usuarios", objData.msg, "success");
+                    tableUsuarios.ajax.reload(function(){
+
+                    });
+                } else {
+                    swal("Error", objData.msg, "error");
+                }
+            }
+        }
     }
 }, false);
 
