@@ -25,7 +25,7 @@
             {
                 if($arrData[$i]['status'] == 1)
                 {
-                    $arrData[$i]['status'] = '<span class="badge badge-success">Activo</span>';
+                    $arrData[$i]['status'] = '<span class="badge badge-success">Activo</span></span>';
                 }else{
                     $arrData[$i]['status'] = '<span class="badge badge-danger">Inactivo</span>';
                 }
