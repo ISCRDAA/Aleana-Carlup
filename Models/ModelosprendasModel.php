@@ -20,7 +20,7 @@
                         modelo.nombre,
                         tipo.nombre AS tipo_nombre,
                         modelo.peso_modelo,
-                        modelo.status 
+                        modelo.status
                     FROM
                         modelo
                     INNER JOIN

@@ -34,17 +34,17 @@
                                 </div>    
                             </div>
 
-            <div class="col-md-4">
-                <br>
-                <div class="card">
-                    <div class="card-header">Incio de sesion</div>
-                    <div class="card-body">
-                        <form action="/Controllers/Login.php" method="post">
-                            Usuario: <input class="form-control" type="text" name="usuario">
-                            <br />
-                            constraseña: <input class="form-control" type="password" name="contrasena" id="">
-                            <br>
-                            <button class="btn btn-success" type="submit">Iniciar sesion</button>
+                            <form action="" method="post" name="formLogin" id="formLogin" action="" autofocus>
+                                Usuario: <input class="form-control" type="email" id="txtEmail" name="txtEmail">
+                                <br />
+                            
+                                constraseña: <input class="form-control" type="password" id="txtPassword" name="txtPassword">
+                                <br>
+                            
+                                <!-- Confirmar contraseña: <input class="form-control" type="password" name="confirmar" id=""> -->
+                                <br />
+                            
+                                <button class="btn btn-success" type="submit">Iniciar sesion</button>
 
                             </form>
 
