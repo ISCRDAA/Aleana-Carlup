@@ -44,7 +44,40 @@
         public function setHilocaja()
         {
             if ($_POST) {
-                dep($_POST);
+                if (empty($_POST['listColor']) || empty($_POST['txtMarca']) || empty($_POST['txtTenida']) || empty($_POST['listTipo']) || empty($_POST['txtCantidadCajas']) || empty($_POST['txtCantidadConos']) || empty($_POST['txtPesoTotal']) || empty($_POST['listTipoEmpaquetado']) || empty($_POST['listStatus'])) {
+                    $arrResponse = array("status" => false, "msg" => 'Datos incorrectos.');
+                } else {
+                    $intColor = intval(strClean($_POST['listColor']));
+                    $strMarca = ucwords(strClean($_POST['txtMarca']));
+                    $strTenida = ucwords(strClean($_POST['txtTenida']));
+                    $intTipo = intval(strClean($_POST['listTipo']));
+                    $intCantidadCajas = intval(strClean($_POST['txtCantidadCajas']));
+                    $intCantidadConos = intval(strClean($_POST['txtCantidadConos']));
+                    $intPeso = intval(strClean($_POST['txtPesoTotal']));
+                    $strTipoEmpaquetado = ucwords(strClean($_POST['listTipoEmpaquetado']));
+                    $intStatus = intval(strClean($_POST['listStatus']));
+
+                    $request_hilocaja = $this->model->insertHilocaja($intColor,
+                                                                    $strMarca,
+                                                                    $strTenida,
+                                                                    $intTipo,
+                                                                    $intCantidadCajas,
+                                                                    $intCantidadConos,
+                                                                    $intPeso,
+                                                                    $strTipoEmpaquetado,
+                                                                    $intStatus);
+
+                    if ($request_hilocaja > 0)
+                    {
+                        $arrResponse = array("status" => true, "msg" => 'Datos guardados correctamente.');
+                    }/*else if($request_hilocaja == 'exist')
+                    {
+                        $arrResponse = array("status" => false, "msg" => '¡Atención! el email o la identificación ya existe, ingrese otro.');
+                    }*/else{
+                        $arrResponse = array("status" => false, "msg" => 'No es posible almacenar los datos.');
+                    }
+                }
+                echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
             }
             die();
         }

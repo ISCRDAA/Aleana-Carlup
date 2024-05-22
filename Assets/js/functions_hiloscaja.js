@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function(){
             {"data":"cantidad_de_conos"},
             {"data":"peso_total"},
             {"data":"tipo_empaquetado"},
+            {"data":"datecreated"},
             {"data":"status"},
             {"data":"options"}
         ],
@@ -53,7 +54,21 @@ document.addEventListener('DOMContentLoaded', function(){
         var formData = new FormData(formHilocaja);
         request.open("POST",ajaxUrl,true);
         request.send(formData);
-
+        request.onreadystatechange = function(){
+            if (request.readyState == 4 && request.status == 200) {
+                var objData = JSON.parse(request.responseText);
+                if (objData.status)
+                {
+                    $('#modalFormHilosCaja').modal("hide");
+                    formHilocaja.reset();
+                    swal("Hilos Caja", objData.msg, "success");
+                    tableHilosCaja.ajax.reload(function(){
+                    });
+                } else {
+                    swal("Error", objData.msg, "error");
+                }
+            }
+        }
     }
 }, false);
 

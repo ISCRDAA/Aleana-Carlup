@@ -4,7 +4,7 @@
         <div class="modal-content">
 
             <div class="modal-header headerRegister">
-                <h5 class="modal-title" id="titleModal">Nuevo Usuario</h5>
+                <h5 class="modal-title" id="titleModal">Nuevo</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -12,7 +12,7 @@
 
             <div class="modal-body">
                 <form id="formProduccion" name="formProduccion" class="form-horizontal">
-                    <input type="hidden" id="idUsuario" name="idUsuario" value="">
+                    <input type="hidden" id="idProduccion" name="idProduccion" value="">
                     <p class="text-primary">Todos los campos son obligatorios.</p>
 
                     <div class="form-row">
@@ -44,6 +44,7 @@
                         </div>
                     </div>
 
+                    <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="listStatus">Status</label>
                             <select class="form-control selectpicker" id="listStatus" name="listStatus" required="">

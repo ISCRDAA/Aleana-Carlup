@@ -22,6 +22,7 @@
             // EXTRAER USUARIOS
             $sql = "SELECT
                         P.idpersona,
+                        P.identificacion,
                         P.nombres,
                         P.apellidos,
                         P.telefono,
@@ -31,7 +32,9 @@
                     FROM
                         z_persona AS P
                     INNER JOIN
-                        z_rol AS R ON P.rolid = R.idrol;";
+                        z_rol AS R
+                    ON P.rolid = R.idrol
+                    WHERE P.status != 0";
             $request = $this -> select_all($sql);
             return $request;
         }

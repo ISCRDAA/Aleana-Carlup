@@ -40,6 +40,22 @@ document.addEventListener('DOMContentLoaded', function(){
         var formData = new FormData(formColor);
         request.open("POST",ajaxUrl,true);
         request.send(formData);
+        request.onreadystatechange = function(){
+            if (request.readyState == 4 && request.status == 200) {
+                var objData = JSON.parse(request.responseText);
+                if (objData.status)
+                {
+                    $('#modalFormColor').modal("hide");
+                    formColor.reset();
+                    swal("Color", objData.msg, "success");
+                    tableColores.ajax.reload(function(){
+
+                    });
+                } else {
+                    swal("Error", objData.msg, "error");
+                }
+            }
+        }
     }
 }, false);
 

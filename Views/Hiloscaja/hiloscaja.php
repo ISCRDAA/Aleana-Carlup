@@ -33,6 +33,7 @@
                                             <th>Cantidad de conos</th>
                                             <th>Peso total</th>
                                             <th>Tipo de empaquetado</th>
+                                            <th>Fecha de creación</th>
                                             <th>Status</th>
                                             <th>Acciones</th>
                                         </tr>
@@ -47,6 +48,7 @@
                                         <td>50</td>
                                         <td>50 mg</td>
                                         <td>Caja</td>
+                                        <td>21/05/2024</td>
                                         <td>Activo</td>
                                         <td></td>
                                     </tbody>

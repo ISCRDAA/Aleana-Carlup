@@ -42,6 +42,21 @@ document.addEventListener('DOMContentLoaded', function(){
         var formData = new FormData(formColormodelo);
         request.open("POST",ajaxUrl,true);
         request.send(formData);
+        request.onreadystatechange = function(){
+            if (request.readyState == 4 && request.status == 200) {
+                var objData = JSON.parse(request.responseText);
+                if (objData.status)
+                {
+                    $('#modalFormColorModelo').modal("hide");
+                    formColormodelo.reset();
+                    swal("Color de Modelo", objData.msg, "success");
+                    tableColoresmodelos.ajax.reload(function(){
+                    });
+                } else {
+                    swal("Error", objData.msg, "error");
+                }
+            }
+        }
     }
 }, false);
 

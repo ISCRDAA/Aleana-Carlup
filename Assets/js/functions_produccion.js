@@ -1,4 +1,4 @@
-var tableProduccion;
+/*var tableProduccion;
 document.addEventListener('DOMContentLoaded',function(){
     tableProduccion =$('#tableProduccion').DataTable({
         "aProcessing":true,
@@ -25,7 +25,8 @@ document.addEventListener('DOMContentLoaded',function(){
         "iDisplayLength": 10,
         "order":[[0,"desc"]]
     })
-})
+}, false );*/
+
 function openModal(){
     $('#modalFormProduccion').modal('show');
 }

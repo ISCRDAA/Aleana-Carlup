@@ -31,9 +31,9 @@
                 }
 
                 $arrData[$i]['options'] = '<div class="text-center">
-                <button class="btn btn-secondary btn-sm btn-sm btnPermisosRol" rl="'.$arrData[$i]['id_modelo'].'" title="Permisos"><i class="fas fa-key"></i></button>
-                <button class="btn btn-primary btn-sm btn-sm btnEditRol" rl="'.$arrData[$i]['id_modelo'].'" title="Editar"><i class="fas fa-pencil-alt"></i></button>
-                <button class="btn btn-danger btn-sm btn-sm btnDelRol" rl="'.$arrData[$i]['id_modelo'].'" title="Eliminar"><i class="fas fa-trash-alt"></i></button>
+                <button class="btn btn-info btn-sm btn-sm btnViewModeloPrenda" mp="'.$arrData[$i]['id_modelo'].'" title="Ver modelo de prenda"><i class="far fa-eye"></i></button>
+                <button class="btn btn-primary btn-sm btn-sm btnEditModeloPrenda" mp="'.$arrData[$i]['id_modelo'].'" title="Editar  modelo de prenda"><i class="fas fa-pencil-alt"></i></button>
+                <button class="btn btn-danger btn-sm btn-sm btnDelModeloPrenda" mp="'.$arrData[$i]['id_modelo'].'" title="Eliminar  modelo de prenda"><i class="fas fa-trash-alt"></i></button>
                                             </div>';
             }
 

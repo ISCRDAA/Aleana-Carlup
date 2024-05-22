@@ -31,9 +31,9 @@
                 }
 
                 $arrData[$i]['options'] = '<div class="text-center">
-                <button class="btn btn-secondary btn-sm btn-sm btnPermisosRol" rl="'.$arrData[$i]['id_color_modelo'].'" title="Permisos"><i class="fas fa-key"></i></button>
-                <button class="btn btn-primary btn-sm btn-sm btnEditRol" rl="'.$arrData[$i]['id_color_modelo'].'" title="Editar"><i class="fas fa-pencil-alt"></i></button>
-                <button class="btn btn-danger btn-sm btn-sm btnDelRol" rl="'.$arrData[$i]['id_color_modelo'].'" title="Eliminar"><i class="fas fa-trash-alt"></i></button>
+                <button class="btn btn-info btn-sm btn-sm btnViewColorModelo" cm="'.$arrData[$i]['id_color_modelo'].'" title="Ver Color del modelo"><i class="far fa-eye"></i></button>
+                <button class="btn btn-primary btn-sm btn-sm btnEditColorModelo" cm="'.$arrData[$i]['id_color_modelo'].'" title="Editar Color del modelo"><i class="fas fa-pencil-alt"></i></button>
+                <button class="btn btn-danger btn-sm btn-sm btnDelColorModelo" cm="'.$arrData[$i]['id_color_modelo'].'" title="Eliminar Color del modelo"><i class="fas fa-trash-alt"></i></button>
                                             </div>';
             }
 
@@ -44,7 +44,28 @@
         public function setColormodelo()
         {
             if ($_POST) {
-                dep($_POST);
+                if (empty($_POST['listColor']) || empty($_POST['listModelo']) || empty($_POST['listStatus'])) {
+                    $arrResponse = array("status" => false, "msg" => 'Datos incorrectos.');
+                } else {
+                    $intColor = intval(strClean($_POST['listColor']));
+                    $intModelo = intval(strClean($_POST['listModelo']));
+                    $intStatus = intval(strClean($_POST['listStatus']));
+
+                    $request_colormodelo = $this->model->insertColorModelo($intColor,
+                                                                    $intModelo,
+                                                                    $intStatus);
+
+                    if ($request_colormodelo > 0)
+                    {
+                        $arrResponse = array("status" => true, "msg" => 'Datos guardados correctamente.');
+                    }else if($request_colormodelo == 'exist')
+                    {
+                        $arrResponse = array("status" => false, "msg" => '¡Atención! el modelo con ese color ya existe, ingrese otro.');
+                    }else{
+                        $arrResponse = array("status" => false, "msg" => 'No es posible almacenar los datos.');
+                    }
+                }
+                echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
             }
             die();
         }

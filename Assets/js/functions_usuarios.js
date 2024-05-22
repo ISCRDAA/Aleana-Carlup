@@ -16,8 +16,8 @@ document.addEventListener('DOMContentLoaded', function(){
             {"data":"idpersona"},
             {"data":"nombres"},
             {"data":"apellidos"},
-            {"data":"telefono"},
             {"data":"email_user"},
+            {"data":"telefono"},
             {"data":"nombrerol"},
             {"data":"status"},
             {"data":"options"}

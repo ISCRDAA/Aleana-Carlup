@@ -24,7 +24,9 @@
                     FROM
                         modelo
                     INNER JOIN
-                        tipo ON modelo.tipo_id = tipo.id_tipo;";
+                        tipo
+                    ON modelo.tipo_id = tipo.id_tipo
+                    WHERE modelo.status != 0";
             $request = $this -> select_all($sql);
             return $request;
         }

@@ -57,7 +57,26 @@
         public function setColor()
         {
             if ($_POST) {
-                dep($_POST);
+                if (empty($_POST['txtNombre']) || empty($_POST['listStatus'])) {
+                    $arrResponse = array("status" => false, "msg" => 'Datos incorrectos.');
+                } else {
+                    $strNombre = ucwords(strClean($_POST['txtNombre']));
+                    $intStatus = intval(strClean($_POST['listStatus']));
+
+                    $request_color = $this->model->insertColor($strNombre,
+                                                            $intStatus);
+
+                    if ($request_color > 0)
+                    {
+                        $arrResponse = array("status" => true, "msg" => 'Datos guardados correctamente.');
+                    }else if($request_color == 'exist')
+                    {
+                        $arrResponse = array("status" => false, "msg" => '¡Atención! el color ya existe, ingrese otro.');
+                    }else{
+                        $arrResponse = array("status" => false, "msg" => 'No es posible almacenar los datos.');
+                    }
+                }
+                echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
             }
             die();
         }

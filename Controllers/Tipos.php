@@ -31,9 +31,9 @@
                 }
 
                 $arrData[$i]['options'] = '<div class="text-center">
-                <button class="btn btn-secondary btn-sm btn-sm btnPermisosRol" rl="'.$arrData[$i]['id_tipo'].'" title="Permisos"><i class="fas fa-key"></i></button>
-                <button class="btn btn-primary btn-sm btn-sm btnEditRol" rl="'.$arrData[$i]['id_tipo'].'" title="Editar"><i class="fas fa-pencil-alt"></i></button>
-                <button class="btn btn-danger btn-sm btn-sm btnDelRol" rl="'.$arrData[$i]['id_tipo'].'" title="Eliminar"><i class="fas fa-trash-alt"></i></button>
+                <button class="btn btn-info btn-sm btn-sm btnViewTipo" tp="'.$arrData[$i]['id_tipo'].'" title="Ver tipo"><i class="far fa-eye"></i></button>
+                <button class="btn btn-primary btn-sm btn-sm btnEditTipo" tp="'.$arrData[$i]['id_tipo'].'" title="Editar tipo"><i class="fas fa-pencil-alt"></i></button>
+                <button class="btn btn-danger btn-sm btn-sm btnDelTipo" tp="'.$arrData[$i]['id_tipo'].'" title="Eliminar tipo"><i class="fas fa-trash-alt"></i></button>
                                             </div>';
             }
 
@@ -57,7 +57,25 @@
         public function setTipo()
         {
             if ($_POST) {
-                dep($_POST);
+                if (empty($_POST['txtTipo']) || empty($_POST['listStatus'])) {
+                    $arrResponse = array("status" => false, "msg" => 'Datos incorrectos.');
+                } else {
+                    $strTipo = ucwords(strClean($_POST['txtTipo']));
+                    $intStatus = intval(strClean($_POST['listStatus']));
+
+                    $request_tipo = $this->model->insertTipo($strTipo,
+                                                            $intStatus);
+
+                    if ($request_tipo > 0) {
+                        $arrResponse = array("status" => true, "msg" => 'Datos guardados correctamente.');
+                    } else if($request_tipo == 'exist')
+                    {
+                        $arrResponse = array("status" => false, "msg" => '¡Atención! el tipo ya existe, ingrese otro.');
+                    }else{
+                        $arrResponse = array("status" => false, "msg" => 'No es posible almacenar los datos.');
+                    }
+                }
+                echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
             }
             die();
         }

@@ -40,7 +40,21 @@ document.addEventListener('DOMContentLoaded', function(){
         var formData = new FormData(formTipo);
         request.open("POST",ajaxUrl,true);
         request.send(formData);
+        request.onreadystatechange = function(){
+            if (request.readyState == 4 && request.status == 200) {
+                var objData = JSON.parse(request.responseText);
+                if (objData.status) {
+                    $('#modalFormTipo').modal("hide");
+                    formTipo.reset();
+                    swal("Tipo", objData.msg, "success")
+                    tableTipos.ajax.reload(function(){
 
+                    });
+                } else {
+                    swal("Error", objData.msg, "error");
+                }
+            }
+        }
     }
 }, false);
 

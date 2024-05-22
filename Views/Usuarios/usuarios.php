@@ -12,7 +12,7 @@
                 </div>
                 <ul class="app-breadcrumb breadcrumb">
                     <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-                    <li class="breadcrumb-item"><a href="<?= base_url(); ?>/roles"><?= $data['page_title']; ?></a></li>
+                    <li class="breadcrumb-item"><a href="<?= base_url(); ?>/usuarios"><?= $data['page_title']; ?></a></li>
                 </ul>
             </div>
 
@@ -27,8 +27,8 @@
                                             <th>ID</th>
                                             <th>Nombres</th>
                                             <th>Apellidos</th>
-                                            <th>Teléfonos</th>
                                             <th>Emails</th>
+                                            <th>Teléfonos</th>
                                             <th>Rol</th>
                                             <th>Status</th>
                                             <th>Acciones</th>
@@ -38,8 +38,8 @@
                                         <td>1</td>
                                         <td>Roberto</td>
                                         <td>Colorado</td>
-                                        <td>roberto@gmail.com</td>
                                         <td>7894561230</td>
+                                        <td>roberto@gmail.com</td>
                                         <td>Administrador</td>
                                         <td>Activo</td>
                                         <td></td>
