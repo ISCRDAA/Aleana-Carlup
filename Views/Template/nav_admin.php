@@ -42,6 +42,9 @@
                     <ul class="treeview-menu">
                         <li><a class="treeview-item" href="<?= base_url(); ?>/hiloscaja"><i class="icon fa fa-circle-o"></i> Hilos por Caja</a></li>
                         <li><a class="treeview-item" href="<?= base_url(); ?>/hiloscostal"><i class="icon fa fa-circle-o"></i> Hilos por Costal</a></li>
+                        <li><a class="treeview-item" href="<?= base_url(); ?>/hilosmayol"><i class="icon fa fa-circle-o"></i> Hilos mayol</a></li>
+
+
                     </ul>
                 </li>
 
