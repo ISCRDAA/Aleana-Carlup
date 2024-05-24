@@ -81,39 +81,35 @@
                 <div class="carousel center-align_AC">
 
                     <div class="carousel-item">
-                        <h2 class="subtitulo_AC">Titulo_Prenda</h2>
+                        <h2 class="subtitulo_AC"></h2>
                         <div class="linea-division_AC"></div>
                         <p class="sabor_AC">Modelo_Caracteristica</p>
-<<<<<<< HEAD
                         <img loading="lazy" src="<?= media(); ?>/images/uploads/Modelo31frente.jpeg" alt="">
-=======
-                        <img src="<?= media(); ?>/images/uploads/Modelo31frente.jpeg" alt="">
->>>>>>> 45e8a8e9cd8c7cbe03b790179cd98c0c3229fc9f
                     </div>
 
                     <div class="carousel-item">
-                        <h2 class="subtitulo_AC">Titulo_Prenda</h2>
+                        <h2 class="subtitulo_AC"></h2>
                         <div class="linea-division_AC"></div>
                         <p class="sabor_AC">Modelo_Caracteristica</p>
                         <img loading="lazy" src="<?= media(); ?>/images/uploads/Modelo32frente2.jpeg" alt="">
                     </div>
 
                     <div class="carousel-item">
-                        <h2 class="subtitulo_AC">Titulo_Prenda</h2>
+                        <h2 class="subtitulo_AC"></h2>
                         <div class="linea-division_AC"></div>
                         <p class="sabor_AC">Modelo_Caracteristica</p>
                         <img loading="lazy" src="<?= media(); ?>/images/uploads/Modelo35frente.jpeg" alt="">
                     </div>
 
                     <div class="carousel-item">
-                        <h2 class="subtitulo_AC">Titulo_Prenda</h2>
+                        <h2 class="subtitulo_AC"></h2>
                         <div class="linea-division_AC"></div>
                         <p class="sabor_AC">Modelo_Caracteristica</p>
                         <img loading="lazy" src="<?= media(); ?>/images/uploads/Modelo95frente2.jpeg" alt="">
                     </div>
 
                     <div class="carousel-item">
-                        <h2 class="subtitulo_AC">Titulo_Prenda</h2>
+                        <h2 class="subtitulo_AC"></h2>
                         <div class="linea-division_AC"></div>
                         <p class="sabor_AC">Modelo_Caracteristica</p>
                         <img loading="lazy" src="<?= media(); ?>/images/uploads/Modelo201frente.jpeg" alt="">
@@ -124,10 +120,57 @@
             </div>
         </div>
     </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    
 
-    <section <?= $data['page_id']; ?> class="container">
-        <h1 class="titulo_AC">Hola buenos dias</h1>
-    </section>
+
+    <div class="container text-center">
+        <div class="row">
+            <div class="col">
+                <section class="container">
+                    <div class="card" style="width: 18rem;">
+                        <img src="<?= media(); ?>/images/uploads/Modelo95frente2.jpeg"" class=" card-img-top" alt="Imagen capas">
+                        <div class="card-body">
+                            <h5 class="card-title">Capas</h5>
+                            <p class="card-text">Capas unisex de tejido de punto </p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="col">
+                <section class="container">
+                    <div class="card" style="width: 18rem;">
+                        <img src="<?= media(); ?>/images/uploads/Modelo92lateral.jpeg" class=" card-img-top" alt="Imagen capas">
+                        <div class="card-body">
+                            <h5 class="card-title">Ensambles</h5>
+                            <p class="card-text">Ensambles unisex de tejido de punto </p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="col">
+                <section class="container">
+                    <div class="card" style="width: 18rem;">
+                        <img src="<?= media(); ?>/images/uploads/Modelo182 frente.jpeg" class=" card-img-top" alt="Imagen capas">
+                        <div class="card-body">
+                            <h5 class="card-title">Cordinados</h5>
+                            <p class="card-text">Cordinados unisex de tejido de punto </p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+
+
+
 
     <br>
     <br>
@@ -136,33 +179,33 @@
 
     <footer class="bg-body-tertiary text-center">
         <!--Grid container -->
-    <div class="container p-4 pb-0">
-        <!-- Section: Social media -->
-        <section class="mb-4">
+        <div class="container p-4 pb-0">
+            <!-- Section: Social media -->
+            <section class="mb-4">
 
-            <!-- Facebook -->
-            <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #3b5998;" href="#!" role="button"><i class="fab fa-facebook-f rounded-circle"></i>
-            </a>
+                <!-- Facebook -->
+                <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #3b5998;" href="#!" role="button"><i class="fab fa-facebook-f rounded-circle"></i>
+                </a>
 
-            <!-- Instagram -->
-            <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #ac2bac;" href="#!" role="button"><i class="fab fa-instagram"></i>
-            </a>
+                <!-- Instagram -->
+                <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #ac2bac;" href="#!" role="button"><i class="fab fa-instagram"></i>
+                </a>
 
-            <!-- Twitter -->
-            <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #55acee;" href="#!" role="button"><i class="fab fa-twitter"></i>
-            </a>
+                <!-- Twitter -->
+                <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #55acee;" href="#!" role="button"><i class="fab fa-twitter"></i>
+                </a>
 
-        </section>
-        <!-- Section: Social media -->
-    </div>
-    <!-- Grid container -->
+            </section>
+            <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
 
 
-    <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
-        © 2023 Copyright: Aleana&Carlup
-    </div>
-    <!-- Copyright -->
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+            © 2024 Copyright: Aleana&Carlup
+        </div>
+        <!-- Copyright -->
     </footer>
 
     <!-- Materialize.js -->
