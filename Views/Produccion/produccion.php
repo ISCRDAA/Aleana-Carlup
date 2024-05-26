@@ -7,7 +7,7 @@
                 <div>
                     <h1>
                         <i class="fas fa-user-tag"></i> <?= $data['page_title']; ?>
-                        <button class="btn btn-primary" type="button" onclick="openModal();"><i class="fas fa-plus-circle"></i> Nueva orden </button>
+                        <button class="btn btn-primary" type="button" onclick="openModal();"><i class="fas fa-plus-circle"></i> Nueva</button>
                     </h1>
                 </div>
                 <ul class="app-breadcrumb breadcrumb">
@@ -34,6 +34,8 @@
                                             <th>Acciones</th>
                                         </tr>
                                     </thead>
+                                    <tbody>
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
