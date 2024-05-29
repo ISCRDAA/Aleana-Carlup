@@ -23,7 +23,9 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="txtMarca">Marca</label>
-                            <input type="text" class="form-control" id="txtMarca" name="txtMarca" required="">
+                            <select class="form-control selectpicker" id="txtMarca" name="txtMarca" required="">
+                                <option value="Aguila">Aguila</option>
+                            </select>
                         </div>
                     </div>
 
@@ -41,17 +43,6 @@
 
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="txtCantidadCajas">Cantidad de cajas</label>
-                            <input type="text" class="form-control" id="txtCantidadCajas" name="txtCantidadCajas" required="">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="txtCantidadConos">Cantidad de conos</label>
-                            <input type="text" class="form-control" id="txtCantidadConos" name="txtCantidadConos" required="">
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
                             <label for="txtPesoTotal">Peso total</label>
                             <input type="text" class="form-control" id="txtPesoTotal" name="txtPesoTotal" required="">
                         </div>
@@ -59,6 +50,7 @@
                             <label for="listTipoEmpaquetado">Tipo de empaquetado</label>
                             <select class="form-control selectpicker" id="listTipoEmpaquetado" name="listTipoEmpaquetado" required="">
                                 <option value="Caja">Caja</option>
+                                <option value="Costal">Costal</option>
                             </select>
                         </div>
                     </div>

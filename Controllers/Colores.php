@@ -31,9 +31,9 @@
                 }
 
                 $arrData[$i]['options'] = '<div class="text-center">
-                <button class="btn btn-secondary btn-sm btn-sm btnPermisosRol" rl="'.$arrData[$i]['id_color'].'" title="Permisos"><i class="fas fa-key"></i></button>
-                <button class="btn btn-primary btn-sm btn-sm btnEditRol" rl="'.$arrData[$i]['id_color'].'" title="Editar"><i class="fas fa-pencil-alt"></i></button>
-                <button class="btn btn-danger btn-sm btn-sm btnDelRol" rl="'.$arrData[$i]['id_color'].'" title="Eliminar"><i class="fas fa-trash-alt"></i></button>
+                <button class="btn btn-info btn-sm btn-sm btnViewColor" cl="'.$arrData[$i]['id_color'].'" title="Ver color"><i class="fas fa-eye"></i></button>
+                <button class="btn btn-primary btn-sm btn-sm btnEditColor" cl="'.$arrData[$i]['id_color'].'" title="Editar color"><i class="fas fa-pencil-alt"></i></button>
+                <button class="btn btn-danger btn-sm btn-sm btnDelColor" cl="'.$arrData[$i]['id_color'].'" title="Eliminar color"><i class="fas fa-trash-alt"></i></button>
                                             </div>';
             }
 

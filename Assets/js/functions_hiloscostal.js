@@ -18,10 +18,10 @@ document.addEventListener('DOMContentLoaded', function(){
             {"data":"marca"},
             {"data":"tenida"},
             {"data":"nombre_tipo"},
-            {"data":"cantidad_de_cajas"},
-            {"data":"cantidad_de_conos"},
             {"data":"peso_total"},
             {"data":"tipo_empaquetado"},
+            {"data":"datecreated"},
+            {"data":"dateupdate"},
             {"data":"status"},
             {"data":"options"}
         ],
@@ -39,11 +39,9 @@ document.addEventListener('DOMContentLoaded', function(){
         var strMarca = document.querySelector('#txtMarca').value;
         var strTenida = document.querySelector('#txtTenida').value;
         var intTipo = document.querySelector('#listTipo').value;
-        var intCantidadcajas = document.querySelector('#txtCantidadCajas').value;
-        var intCantidadconos = document.querySelector('#txtCantidadConos').value;
         var intPesototal = document.querySelector('#txtPesoTotal').value;
 
-        if (intColor == '' || strMarca == '' || strTenida == '' || intTipo == '' || intCantidadcajas == '' || intCantidadconos == '' || intPesototal == '') {
+        if (intColor == '' || strMarca == '' || strTenida == '' || intTipo == '' || intPesototal == '') {
             swal("Atención", "Todos los campos son obligatorios.", "error");
             return false;
         }
@@ -53,7 +51,21 @@ document.addEventListener('DOMContentLoaded', function(){
         var formData = new FormData(formHilocostal);
         request.open("POST",ajaxUrl,true);
         request.send(formData);
-
+        request.onreadystatechange = function(){
+            if (request.readyState == 4 && request.status == 200) {
+                var objData = JSON.parse(request.responseText);
+                if (objData.status)
+                {
+                    $('#modalFormHilosCostal').modal("hide");
+                    formHilocostal.reset();
+                    swal("Hilos Coperativa", objData.msg, "success");
+                    tableHilosCostal.ajax.reload(function(){
+                    });
+                } else {
+                    swal("Error", objData.msg, "error");
+                }
+            }
+        }
     }
 }, false);
 

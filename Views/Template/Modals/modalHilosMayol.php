@@ -1,6 +1,6 @@
 <!-- Modal -->
 <div class="modal fade" id="modalFormHilosMayol" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-ms">
         <div class="modal-content">
 
             <div class="modal-header headerRegister">

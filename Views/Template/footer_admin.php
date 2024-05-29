@@ -43,9 +43,11 @@
         <?php if ($data['page_name'] == "hiloscostal") { ?>
         <script src="<?= media(); ?>/js/functions_hiloscostal.js"></script>
         <?php } ?>
+        <?php if ($data['page_name'] == "produccion") { ?>
+        <script src="<?= media(); ?>/js/functions_produccion.js"></script>
+        <?php } ?>
         <?php if ($data['page_name'] == "hilosmayol") { ?>
         <script src="<?= media(); ?>/js/functions_hilosmayol.js"></script>
-
         <?php } ?>
     </body>
 </html>

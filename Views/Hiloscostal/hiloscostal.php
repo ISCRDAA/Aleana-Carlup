@@ -29,10 +29,10 @@
                                             <th>Marca</th>
                                             <th>Teñida</th>
                                             <th>Tipo</th>
-                                            <th>Cantidad de cajas</th>
-                                            <th>Cantidad de conos</th>
-                                            <th>Peso total</th>
-                                            <th>Tipo de empaquetado</th>
+                                            <th>Peso Total</th>
+                                            <th>Empaquetado</th>
+                                            <th>Fecha de creación</th>
+                                            <th>Fecha de Actualización</th>
                                             <th>Status</th>
                                             <th>Acciones</th>
                                         </tr>
@@ -43,10 +43,10 @@
                                         <td>Hola marca</td>
                                         <td>789456</td>
                                         <td>Acrilan</td>
-                                        <td>10</td>
-                                        <td>200</td>
                                         <td>300 mg</td>
                                         <td>Costal</td>
+                                        <td>21/05/2024</td>
+                                        <td>21/05/2024</td>
                                         <td>Activo</td>
                                         <td></td>
                                     </tbody>

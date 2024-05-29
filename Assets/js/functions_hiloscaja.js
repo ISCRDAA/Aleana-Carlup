@@ -15,14 +15,13 @@ document.addEventListener('DOMContentLoaded', function(){
         "columns":[
             {"data":"id_hilo_caja"},
             {"data":"nombre_color"},
-            {"data":"marca"},
+            {"data":"marca", /*"width": "10"*/},
             {"data":"tenida"},
             {"data":"nombre_tipo"},
-            {"data":"cantidad_de_cajas"},
-            {"data":"cantidad_de_conos"},
             {"data":"peso_total"},
             {"data":"tipo_empaquetado"},
             {"data":"datecreated"},
+            {"data":"dateupdate"},
             {"data":"status"},
             {"data":"options"}
         ],
@@ -40,11 +39,9 @@ document.addEventListener('DOMContentLoaded', function(){
         var strMarca = document.querySelector('#txtMarca').value;
         var strTenida = document.querySelector('#txtTenida').value;
         var intTipo = document.querySelector('#listTipo').value;
-        var intCantidadcajas = document.querySelector('#txtCantidadCajas').value;
-        var intCantidadconos = document.querySelector('#txtCantidadConos').value;
         var intPesototal = document.querySelector('#txtPesoTotal').value;
 
-        if (intColor == '' || strMarca == '' || strTenida == '' || intTipo == '' || intCantidadcajas == '' || intCantidadconos == '' || intPesototal == '') {
+        if (intColor == '' || strMarca == '' || strTenida == '' || intTipo == '' || intPesototal == '') {
             swal("Atención", "Todos los campos son obligatorios.", "error");
             return false;
         }
@@ -61,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 {
                     $('#modalFormHilosCaja').modal("hide");
                     formHilocaja.reset();
-                    swal("Hilos Caja", objData.msg, "success");
+                    swal("Hilos Aguila", objData.msg, "success");
                     tableHilosCaja.ajax.reload(function(){
                     });
                 } else {

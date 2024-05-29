@@ -12,7 +12,7 @@
                 </div>
                 <ul class="app-breadcrumb breadcrumb">
                     <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-                    <li class="breadcrumb-item"><a href="<?= base_url(); ?>/roles"><?= $data['page_title']; ?></a></li>
+                    <li class="breadcrumb-item"><a href="<?= base_url(); ?>/hiloscaja"><?= $data['page_title']; ?></a></li>
                 </ul>
             </div>
 
@@ -20,7 +20,7 @@
                 <div class="col-md-12">
                     <div class="tile">
                         <div class="tile-body">
-                            <div class="table-responsive">
+                            <div class="table-respons_ive">
                                 <table class="table table-hover table-bordered" id="tableHilosCaja">
                                     <thead>
                                         <tr>
@@ -29,11 +29,10 @@
                                             <th>Marca</th>
                                             <th>Teñida</th>
                                             <th>Tipo</th>
-                                            <th>Cantidad de cajas</th>
-                                            <th>Cantidad de conos</th>
-                                            <th>Peso total</th>
-                                            <th>Tipo de empaquetado</th>
+                                            <th>Peso Total</th>
+                                            <th>Empaquetado</th>
                                             <th>Fecha de creación</th>
+                                            <th>Fecha de Actualización</th>
                                             <th>Status</th>
                                             <th>Acciones</th>
                                         </tr>
@@ -44,10 +43,9 @@
                                         <td>Hola marca</td>
                                         <td>123465</td>
                                         <td>Viscosa</td>
-                                        <td>5</td>
-                                        <td>50</td>
                                         <td>50 mg</td>
                                         <td>Caja</td>
+                                        <td>21/05/2024</td>
                                         <td>21/05/2024</td>
                                         <td>Activo</td>
                                         <td></td>
