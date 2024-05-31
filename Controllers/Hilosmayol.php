@@ -7,15 +7,13 @@
 
         public function hilosmayol()
         {
-            $data['page_tag'] = "Hilosmayol";
-            $data['page_title'] = "Hilosmayol <small>Aleana&Carlup</small>";
+            $data['page_tag'] = "Hilos Mayol";
+            $data['page_title'] = "Hilos Mayol <small>Aleana&Carlup</small>";
             $data['page_name'] = "hilosmayol";
             //echo "Mensaje desde el controlador";
             // hacemos el llamado a la vista que queremos mostrar
             // enviandole como parametro el arrary de datos $data
             $this -> views -> getView($this, "hilosmayol",$data);
         }
-
-        
     }
 ?>

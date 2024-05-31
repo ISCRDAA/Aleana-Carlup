@@ -1,6 +1,6 @@
 <?php
         headerAdmin($data);
-        getModal('modalHilosMayol', $data);
+        //getModal('modalHilosCostal', $data);
     ?>
         <main class="app-content">
             <div class="app-title">
@@ -12,7 +12,7 @@
                 </div>
                 <ul class="app-breadcrumb breadcrumb">
                     <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-                    <li class="breadcrumb-item"><a href="<?= base_url(); ?>/hilosmayol"><?= $data['page_title']; ?></a></li>
+                    <li class="breadcrumb-item"><a href="<?= base_url(); ?>/hilosinternacionales"><?= $data['page_title']; ?></a></li>
                 </ul>
             </div>
 
@@ -26,9 +26,13 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>Color</th>
+                                            <th>Marca</th>
                                             <th>Teñida</th>
                                             <th>Tipo</th>
-                                            <th>Peso total</th>
+                                            <th>Peso Total</th>
+                                            <th>Empaquetado</th>
+                                            <th>Fecha de creación</th>
+                                            <th>Fecha de Actualización</th>
                                             <th>Status</th>
                                             <th>Acciones</th>
                                         </tr>
@@ -36,9 +40,13 @@
                                     <tbody>
                                         <td>1</td>
                                         <td>Mostasa</td>
+                                        <td>Euros</td>
                                         <td>789456</td>
                                         <td>Acrilan</td>
                                         <td>300 mg</td>
+                                        <td>Costal</td>
+                                        <td>21/05/2024</td>
+                                        <td>21/05/2024</td>
                                         <td>Activo</td>
                                         <td></td>
                                     </tbody>
