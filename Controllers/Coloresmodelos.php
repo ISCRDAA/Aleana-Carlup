@@ -23,6 +23,25 @@
 
             for ($i = 0; $i < count($arrData); $i++)
             {
+                // Validar cada campo de color
+                $camposColor = array($arrData[$i]['color_combinacion_01'],
+                                    $arrData[$i]['color_combinacion_02'],
+                                    $arrData[$i]['color_combinacion_03'],
+                                    $arrData[$i]['color_combinacion_04'],
+                                    $arrData[$i]['color_combinacion_05']
+                );
+
+                // in_array() busca si un valor específico existe en un array. Su sintaxis básica es: in_array($valor_a_buscar, $array_a_buscar);
+                // La función devuelve true si el valor está presente en el array y false si no lo está.
+                if (in_array('No Asignado', $camposColor)) {
+                    $arrData[$i]['color_combinacion_01'] = '<span class="badge badge-danger">No Asignado</span>';
+                    $arrData[$i]['color_combinacion_02'] = '<span class="badge badge-danger">No Asignado</span>';
+                    $arrData[$i]['color_combinacion_03'] = '<span class="badge badge-danger">No Asignado</span>';
+                    $arrData[$i]['color_combinacion_04'] = '<span class="badge badge-danger">No Asignado</span>';
+                    $arrData[$i]['color_combinacion_05'] = '<span class="badge badge-danger">No Asignado</span>';
+                    // Puedes hacer lo mismo para los otros campos de color si es necesario
+                }
+
                 if($arrData[$i]['status'] == 1)
                 {
                     $arrData[$i]['status'] = '<span class="badge badge-success">Activo</span>';

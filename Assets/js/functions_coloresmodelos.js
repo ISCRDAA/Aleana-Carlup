@@ -122,9 +122,6 @@ function fntColoresCombinaciones(){
                 element.value = 1;
                 $(element).selectpicker('render');
             });
-            //document.querySelector('#listCombinacion01').innerHTML = request.responseText;
-            //document.querySelector('#listCombinacion01').value = 1;
-            //$('#listCombinacion01').selectpicker('render');
         }
     }
 }
