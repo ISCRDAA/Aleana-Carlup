@@ -17,15 +17,46 @@
 
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="listColor">Color</label>
-                            <select class="form-control" data-live-search="true" id="listColor" name="listColor" required="">
-                            </select>
-                        </div>
-                        <div class="form-group col-md-6">
                             <label for="listModelo">Modelo</label>
                             <select class="form-control" data-live-search="true" id="listModelo" name="listModelo" required="">
                             </select>
                         </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="listColor">Color Base</label>
+                            <select class="form-control" data-live-search="true" id="listColor" name="listColor" required="">
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="listCombinacion01">Combinación 01</label>
+                            <select class="form-control" data-live-search="true" id="listCombinacion01" name="listCombinacion01" required="">
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="listCombinacion02">Combinación 02</label>
+                            <select class="form-control" data-live-search="true" id="listCombinacion02" name="listCombinacion02" required="">
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="listCombinacion03">Combinación 03</label>
+                            <select class="form-control" data-live-search="true" id="listCombinacion03" name="listCombinacion03" required="">
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="listCombinacion04">Combinación 04</label>
+                            <select class="form-control" data-live-search="true" id="listCombinacion04" name="listCombinacion04" required="">
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="listCombinacion05">Combinación 05</label>
+                            <select class="form-control" data-live-search="true" id="listCombinacion05" name="listCombinacion05" required="">
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="listStatus">Status</label>
                             <select class="form-control selectpicker" id="listStatus" name="listStatus" required="">

@@ -44,15 +44,26 @@
         public function setColormodelo()
         {
             if ($_POST) {
-                if (empty($_POST['listColor']) || empty($_POST['listModelo']) || empty($_POST['listStatus'])) {
+                //dep($_POST);exit;
+                if (empty($_POST['listColor']) || empty($_POST['listModelo']) || empty($_POST['listStatus']) || empty($_POST['listCombinacion01']) || empty($_POST['listCombinacion02']) || empty($_POST['listCombinacion03']) || empty($_POST['listCombinacion04']) || empty($_POST['listCombinacion05'])) {
                     $arrResponse = array("status" => false, "msg" => 'Datos incorrectos.');
                 } else {
                     $intColor = intval(strClean($_POST['listColor']));
                     $intModelo = intval(strClean($_POST['listModelo']));
+                    $intCombinacion01 = intval(strClean($_POST['listCombinacion01']));
+                    $intCombinacion02 = intval(strClean($_POST['listCombinacion02']));
+                    $intCombinacion03 = intval(strClean($_POST['listCombinacion03']));
+                    $intCombinacion04 = intval(strClean($_POST['listCombinacion04']));
+                    $intCombinacion05 = intval(strClean($_POST['listCombinacion05']));
                     $intStatus = intval(strClean($_POST['listStatus']));
 
                     $request_colormodelo = $this->model->insertColorModelo($intColor,
                                                                     $intModelo,
+                                                                    $intCombinacion01,
+                                                                    $intCombinacion02,
+                                                                    $intCombinacion03,
+                                                                    $intCombinacion04,
+                                                                    $intCombinacion05,
                                                                     $intStatus);
 
                     if ($request_colormodelo > 0)
