@@ -1,5 +1,5 @@
 <!-- Modal -->
-<div class="modal fade" id="modalFormHilosMayol" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade" id="modalFormHilosEuros" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
 
@@ -11,8 +11,8 @@
             </div>
 
             <div class="modal-body">
-                <form id="formHilosMayol" name="formHilosMayol" class="form-horizontal">
-                    <input type="hidden" id="idHilosMayol" name="idHilosMayol" value="">
+                <form id="formHilosEuros" name="formHilosEuros" class="form-horizontal">
+                    <input type="hidden" id="idHilosEuros" name="idHilosEuros" value="">
                     <p class="text-primary">Todos los campos son obligatorios.</p>
 
                     <div class="form-row">
@@ -24,7 +24,7 @@
                         <div class="form-group col-md-6">
                             <label for="txtMarca">Marca</label>
                             <select class="form-control selectpicker" id="txtMarca" name="txtMarca" required="">
-                                <option value="Mayol">Mayol</option>
+                                <option value="Euros">Euros</option>
                             </select>
                         </div>
                     </div>
@@ -35,9 +35,9 @@
                             <input type="text" class="form-control" id="txtTenida" name="txtTenida" required="">
                         </div>
                         <div class="form-group col-md-6">
-                                <label for="listTipo">Tipo</label>
-                                <select class="form-control" data-live-search="true" id="listTipo" name="listTipo" required="">
-                                </select>
+                            <label for="listTipo">Tipo</label>
+                            <select class="form-control" data-live-search="true" id="listTipo" name="listTipo" required="">
+                            </select>
                         </div>
                     </div>
 
