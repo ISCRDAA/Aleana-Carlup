@@ -43,11 +43,23 @@
         <?php if ($data['page_name'] == "hiloscostal") { ?>
         <script src="<?= media(); ?>/js/functions_hiloscostal.js"></script>
         <?php } ?>
-        <?php if ($data['page_name'] == "produccion") { ?>
-        <script src="<?= media(); ?>/js/functions_produccion.js"></script>
-        <?php } ?>
         <?php if ($data['page_name'] == "hilosmayol") { ?>
         <script src="<?= media(); ?>/js/functions_hilosmayol.js"></script>
+        <?php } ?>
+        <?php if ($data['page_name'] == "hiloseuros") { ?>
+        <script src="<?= media(); ?>/js/functions_hiloseuros.js"></script>
+        <?php } ?>
+        <?php if ($data['page_name'] == "hilosmiguelgarcia") { ?>
+        <script src="<?= media(); ?>/js/functions_hilosmiguelgarcia.js"></script>
+        <?php } ?>
+        <?php if ($data['page_name'] == "hilosinternacionales") { ?>
+        <script src="<?= media(); ?>/js/functions_hilosinternacionales.js"></script>
+        <?php } ?>
+        <?php if ($data['page_name'] == "hilososcardominguez") { ?>
+        <script src="<?= media(); ?>/js/functions_hilososcardominguez.js"></script>
+        <?php } ?>
+        <?php if ($data['page_name'] == "produccion") { ?>
+        <script src="<?= media(); ?>/js/functions_produccion.js"></script>
         <?php } ?>
     </body>
 </html>

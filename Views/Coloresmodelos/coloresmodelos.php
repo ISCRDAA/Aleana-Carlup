@@ -25,8 +25,13 @@
                                     <thead>
                                         <tr>
                                             <th>id</th>
-                                            <th>Color</th>
                                             <th>Modelo</th>
+                                            <th>Color Base</th>
+                                            <th>Combinación01</th>
+                                            <th>Combinación02</th>
+                                            <th>Combinación03</th>
+                                            <th>Combinación04</th>
+                                            <th>Combinación05</th>
                                             <th>Status</th>
                                             <th>Acciones</th>
                                         </tr>

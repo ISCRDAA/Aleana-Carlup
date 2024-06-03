@@ -14,8 +14,13 @@ document.addEventListener('DOMContentLoaded', function(){
         },
         "columns":[
             {"data":"id_color_modelo"},
-            {"data":"nombre_color"},
             {"data":"nombre_modelo"},
+            {"data":"color_base"},
+            {"data":"color_combinacion_01"},
+            {"data":"color_combinacion_02"},
+            {"data":"color_combinacion_03"},
+            {"data":"color_combinacion_04"},
+            {"data":"color_combinacion_05"},
             {"data":"status"},
             {"data":"options"}
         ],
@@ -31,8 +36,13 @@ document.addEventListener('DOMContentLoaded', function(){
         e.preventDefault();
         var intColor  = document.querySelector('#listColor').value;
         var intModelo = document.querySelector('#listModelo').value;
+        var intCombinacion01 = document.querySelector('#listCombinacion01').value;
+        var intCombinacion02 = document.querySelector('#listCombinacion02').value;
+        var intCombinacion03 = document.querySelector('#listCombinacion03').value;
+        var intCombinacion04 = document.querySelector('#listCombinacion04').value;
+        var intCombinacion05 = document.querySelector('#listCombinacion05').value;
 
-        if (intColor == '' || intModelo == '') {
+        if (intColor == '' || intModelo == '' || intCombinacion01 == '' || intCombinacion02 == '' || intCombinacion03 == '' || intCombinacion04 == '' || intCombinacion05 == '') {
             swal("Atención", "Todos los campos son obligatorios.", "error");
             return false;
         }
@@ -65,6 +75,7 @@ $('#tableColoresmodelos').DataTable();
 window.addEventListener('load', function() {
     fntColores();
     fntModelosPrendas();
+    fntColoresCombinaciones();
 }, false);
 
 function fntColores(){
@@ -93,6 +104,24 @@ function fntModelosPrendas(){
             document.querySelector('#listModelo').innerHTML = request.responseText;
             document.querySelector('#listModelo').value = 1;
             $('#listModelo').selectpicker('render');
+        }
+    }
+}
+
+function fntColoresCombinaciones(){
+    var ajaxUrl = base_url+'/Colores/getSelectColores';
+    var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+    request.open("GET",ajaxUrl,true);
+    request.send();
+
+    request.onreadystatechange = function(){
+        if (request.readyState == 4 && request.status == 200) {
+            var element = document.querySelectorAll('#listCombinacion01, #listCombinacion02, #listCombinacion03, #listCombinacion04, #listCombinacion05');
+            element.forEach(function(element) {
+                element.innerHTML = request.responseText;
+                element.value = 1;
+                $(element).selectpicker('render');
+            });
         }
     }
 }
