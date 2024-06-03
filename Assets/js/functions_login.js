@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', function(){
                     } else {
                         swal("Atención", "Error en el proceso", "error");
                     }
+                    console.log(objData);
                     divLoading.style.display = "none";
                     return false;
                 }
