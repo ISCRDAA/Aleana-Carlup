@@ -69,6 +69,7 @@ $('#tableModelosprendas').DataTable();
 
 window.addEventListener('load', function() {
     fntTiposPrendas();
+    fntViewModeloPrenda();
 }, false);
 
 function fntTiposPrendas(){
@@ -84,6 +85,38 @@ function fntTiposPrendas(){
             $('#listTipo').selectpicker('render');
         }
     }
+}
+
+function fntViewModeloPrenda(){
+    var btnViewModeloPrenda = document.querySelectorAll('.btnViewModeloPrenda');
+    btnViewModeloPrenda.forEach(function(btnViewModeloPrenda){
+        btnViewModeloPrenda.addEventListener('click', function(){
+            var idmodeloprenda = this.getAttribute("mp");
+            var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+            var ajaxUrl = base_url+'/Modelosprendas/getModeloPrenda/'+idmodeloprenda;
+            request.open("GET",ajaxUrl,true);
+            request.send();
+            request.onreadystatechange = function(){
+                if (request.readyState == 4 && request.status == 200) {
+                    var objData = JSON.parse(request.responseText);
+                    if (objData.status)
+                    {
+                        var estadoModelosPrendas = objData.data.status == 1 ?
+                        '<span class="badge badge-success">Activo</span>' :
+                        '<span class="badge badge-danger">Inactivo</span>';
+                        document.querySelector("#celId").innerHTML = objData.data.id_modelo;
+                        document.querySelector("#celNombre").innerHTML = objData.data.nombre;
+                        document.querySelector("#celTipo").innerHTML = objData.data.tipo_nombre;
+                        document.querySelector("#celPesoDelModelo").innerHTML = objData.data.peso_modelo;
+                        document.querySelector("#celEstado").innerHTML = estadoModelosPrendas;
+                        $('#modalViewModelosPrendas').modal('show');
+                    }else{
+                        swal("Error", objData.msg, "error");
+                    }
+                }
+            }
+        });
+    });
 }
 
 function openModal() {

@@ -60,6 +60,40 @@ document.addEventListener('DOMContentLoaded', function(){
 
 $('#tableTipos').DataTable();
 
+window.addEventListener('load', function() {
+    fntViewTipo();
+}, false);
+
+function fntViewTipo(){
+    var btnViewTipo = document.querySelectorAll('.btnViewTipo');
+    btnViewTipo.forEach(function(btnViewTipo){
+        btnViewTipo.addEventListener('click', function(){
+            var idtipo = this.getAttribute("tp");
+            var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+            var ajaxUrl = base_url+'/Tipos/getTipo/'+idtipo;
+            request.open("GET",ajaxUrl,true);
+            request.send();
+            request.onreadystatechange = function(){
+                if (request.readyState == 4 && request.status == 200) {
+                    var objData = JSON.parse(request.responseText);
+                    if (objData.status)
+                    {
+                        var estadoTipo = objData.data.status == 1 ?
+                        '<span class="badge badge-success">Activo</span>' :
+                        '<span class="badge badge-danger">Inactivo</span>';
+                        document.querySelector("#celId").innerHTML = objData.data.id_tipo;
+                        document.querySelector("#celNombre").innerHTML = objData.data.nombre;
+                        document.querySelector("#celEstado").innerHTML = estadoTipo;
+                        $('#modalViewTipo').modal('show');
+                    }else{
+                        swal("Error", objData.msg, "error");
+                    }
+                }
+            }
+        });
+    });
+}
+
 function openModal() {
 
     document.querySelector('#idTipo').value = "";

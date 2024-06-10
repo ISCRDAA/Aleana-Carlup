@@ -83,5 +83,20 @@
             }
             die();
         }
+
+        public function getModeloPrenda(int $idmodeloprenda){
+            $idModeloPrenda = intval($idmodeloprenda);
+            if ($idModeloPrenda > 0)
+            {
+                $arrData = $this->model->selectModeloPrenda($idModeloPrenda);
+                if (empty($arrData)) {
+                    $arrResponse = array('status' => false, 'msg' => 'Datos no encontrados.');
+                } else {
+                    $arrResponse = array('status' => true, 'data' => $arrData);
+                }
+                echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
+            }
+            die();
+        }
     }
 ?>

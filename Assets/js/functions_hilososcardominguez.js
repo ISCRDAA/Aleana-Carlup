@@ -74,6 +74,7 @@ $('#tableHilosOscarDominguez').DataTable();
 window.addEventListener('load', function() {
     fntColores();
     fntTiposPrendas();
+    fntViewHiloOscarDominguez();
 }, false);
 
 function fntColores(){
@@ -104,6 +105,43 @@ function fntTiposPrendas(){
             $('#listTipo').selectpicker('render');
         }
     }
+}
+
+function fntViewHiloOscarDominguez(){
+    var btnViewHiloOscarDominguez = document.querySelectorAll('.btnViewHiloOscarDominguez');
+    btnViewHiloOscarDominguez.forEach(function(btnViewHiloOscarDominguez){
+        btnViewHiloOscarDominguez.addEventListener('click', function(){
+            var idhilooscardominguez = this.getAttribute("hod");
+            var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+            var ajaxUrl = base_url+'/Hilososcardominguez/getHiloOscarDominguez/'+idhilooscardominguez;
+            request.open("GET",ajaxUrl,true);
+            request.send();
+            request.onreadystatechange = function(){
+                if (request.readyState == 4 && request.status == 200) {
+                    var objData = JSON.parse(request.responseText);
+                    if (objData.status)
+                    {
+                        var estadoHiloOscarDominguez = objData.data.status == 1 ?
+                        '<span class="badge badge-success">Activo</span>' :
+                        '<span class="badge badge-danger">Inactivo</span>';
+                        document.querySelector("#celId").innerHTML = objData.data.idhilososcardominguez;
+                        document.querySelector("#celColor").innerHTML = objData.data.nombre_color;
+                        document.querySelector("#celMarca").innerHTML = objData.data.marca;
+                        document.querySelector("#celTenida").innerHTML = objData.data.tenida;
+                        document.querySelector("#celTipo").innerHTML = objData.data.nombre_tipo;
+                        document.querySelector("#celPesoTotal").innerHTML = objData.data.peso_total;
+                        document.querySelector("#celEmpaquetado").innerHTML = objData.data.tipo_empaquetado;
+                        document.querySelector("#celEstado").innerHTML = estadoHiloOscarDominguez;
+                        document.querySelector("#celFechaRegistro").innerHTML = objData.data.datecreated;
+                        document.querySelector('#celFechaActualizacion').innerHTML = objData.data.dateupdate;
+                        $('#modalViewHilosOscarDominguez').modal('show');
+                    }else{
+                        swal("Error", objData.msg, "error");
+                    }
+                }
+            }
+        });
+    });
 }
 
 function openModal(){

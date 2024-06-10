@@ -84,5 +84,20 @@
             }
             die();
         }
+
+        public function getHiloInternacional(int $idhilointernacional){
+            $idHiloInternacional = intval($idhilointernacional);
+            if ($idHiloInternacional > 0)
+            {
+                $arrData = $this->model->selectHiloInternacional($idHiloInternacional);
+                if (empty($arrData)) {
+                    $arrResponse = array('status' => false, 'msg' => 'Datos no encontrados.');
+                } else {
+                    $arrResponse = array('status' => true, 'data' => $arrData);
+                }
+                echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
+            }
+            die();
+        }
     }
 ?>

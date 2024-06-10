@@ -19,7 +19,7 @@
         public function getUsuarios()
         {
             $arrData = $this -> model -> selectUsuarios();
-
+            //dep($arrData);
             for ($i = 0; $i < count($arrData); $i++)
             {
                 if($arrData[$i]['status'] == 1)
@@ -75,6 +75,21 @@
                     }else{
                         $arrResponse = array("status" => false, "msg" => 'No es posible almacenar los datos.');
                     }
+                }
+                echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
+            }
+            die();
+        }
+
+        public function getUsuario(int $idpersona){
+            $idusuario = intval($idpersona);
+            if ($idusuario > 0)
+            {
+                $arrData = $this->model->selectUsuario($idusuario);
+                if (empty($arrData)) {
+                    $arrResponse = array('status' => false, 'msg' => 'Datos no encontrados.');
+                } else {
+                    $arrResponse = array('status' => true, 'data' => $arrData);
                 }
                 echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
             }

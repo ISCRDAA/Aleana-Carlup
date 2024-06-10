@@ -79,5 +79,20 @@
             }
             die();
         }
+
+        public function getTipo(int $idtipo){
+            $idTipo = intval($idtipo);
+            if ($idTipo > 0)
+            {
+                $arrData = $this->model->selectTipo($idTipo);
+                if (empty($arrData)) {
+                    $arrResponse = array('status' => false, 'msg' => 'Datos no encontrados.');
+                } else {
+                    $arrResponse = array('status' => true, 'data' => $arrData);
+                }
+                echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
+            }
+            die();
+        }
     }
 ?>

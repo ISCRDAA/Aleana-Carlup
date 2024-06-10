@@ -1,7 +1,7 @@
 <?php
     class HiloscostalModel extends Mysql
     {
-        private $intIdHiloCaja;
+        private $intIdHiloCostal;
         private $intColor;
         private $strMarca;
         private $strTenida;
@@ -65,6 +65,31 @@
             $request_insert = $this->insert($query_insert,$arrData);
             $return = $request_insert;
             return $return;
+        }
+
+        public function selectHiloCostal(int $idhilocostal)
+        {
+            $this->intIdHiloCostal = $idhilocostal;
+            $sql = "SELECT
+                        hCostal.id_hilo_costal,
+                        ch.nombre_color,
+                        hCostal.marca,
+                        hCostal.tenida,
+                        t.nombre AS nombre_tipo,
+                        hCostal.peso_total,
+                        hCostal.tipo_empaquetado,
+                        DATE_FORMAT(hCostal.datecreated, '%d-%m-%Y') AS datecreated,
+                        DATE_FORMAT(hCostal.dateupdate, '%d-%m-%Y') AS dateupdate,
+                        hCostal.status
+                    FROM
+                        hilo_costal AS hCostal
+                    INNER JOIN
+                        colores_hilos AS ch ON hCostal.color_id = ch.id_color
+                    INNER JOIN
+                        tipo AS t ON hCostal.tipo_id = t.id_tipo
+                    WHERE hCostal.id_hilo_costal = '{$this->intIdHiloCostal}'";
+            $request = $this->select($sql);
+            return $request;
         }
     }
 ?>

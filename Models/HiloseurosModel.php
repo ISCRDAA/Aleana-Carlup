@@ -66,5 +66,30 @@
             $return = $request_insert;
             return $return;
         }
+
+        public function selectHiloEuro(int $idhiloeuro)
+        {
+            $this->intIdHiloEuro = $idhiloeuro;
+            $sql = "SELECT
+                        hEuros.idhiloseuros,
+                        ch.nombre_color,
+                        hEuros.marca,
+                        hEuros.tenida,
+                        t.nombre AS nombre_tipo,
+                        hEuros.peso_total,
+                        hEuros.tipo_empaquetado,
+                        DATE_FORMAT(hEuros.datecreated, '%d-%m-%Y') AS datecreated,
+                        DATE_FORMAT(hEuros.dateupdate, '%d-%m-%Y') AS dateupdate,
+                        hEuros.status
+                    FROM
+                        hiloseuros AS hEuros
+                    INNER JOIN
+                        colores_hilos AS ch ON hEuros.color_id = ch.id_color
+                    INNER JOIN
+                        tipo AS t ON hEuros.tipo_id = t.id_tipo
+                    WHERE hEuros.idhiloseuros = '{$this->intIdHiloEuro}'";
+            $request = $this->select($sql);
+            return $request;
+        }
     }
 ?>

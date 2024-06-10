@@ -76,6 +76,7 @@ window.addEventListener('load', function() {
     fntColores();
     fntModelosPrendas();
     fntColoresCombinaciones();
+    fntViewColorModelo();
 }, false);
 
 function fntColores(){
@@ -124,6 +125,51 @@ function fntColoresCombinaciones(){
             });
         }
     }
+}
+
+function fntViewColorModelo(){
+    var btnViewColorModelo = document.querySelectorAll('.btnViewColorModelo');
+    btnViewColorModelo.forEach(function(btnViewColorModelo){
+        btnViewColorModelo.addEventListener('click', function(){
+            var idcolormodelo = this.getAttribute("cm");
+            var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+            var ajaxUrl = base_url+'/Coloresmodelos/getColorModelo/'+idcolormodelo;
+            request.open("GET",ajaxUrl,true);
+            request.send();
+            request.onreadystatechange = function(){
+                if (request.readyState == 4 && request.status == 200) {
+                    var objData = JSON.parse(request.responseText);
+                    if (objData.status)
+                    {
+                        var estadoColorModelo = objData.data.status == 1 ?
+                        '<span class="badge badge-success">Activo</span>' :
+                        '<span class="badge badge-danger">Inactivo</span>';
+
+                        var combinaciones = [];
+                        for (var i = 1; i <= 5; i++) {
+                            var colorCombinacion = objData.data["color_combinacion_0" + i];
+                            combinaciones[i] = colorCombinacion == 'No Asignado' ?
+                            '<span class="badge badge-danger">No Asignado</span>' :
+                            colorCombinacion;
+                        }
+
+                        document.querySelector("#celId").innerHTML = objData.data.id_color_modelo;
+                        document.querySelector("#celNombre").innerHTML = objData.data.nombre_modelo;
+                        document.querySelector("#celColor").innerHTML = objData.data.color_base;
+                        document.querySelector("#celCombinacion01").innerHTML = combinaciones[1];
+                        document.querySelector("#celCombinacion02").innerHTML = combinaciones[2];
+                        document.querySelector("#celCombinacion03").innerHTML = combinaciones[3];
+                        document.querySelector("#celCombinacion04").innerHTML = combinaciones[4];
+                        document.querySelector("#celCombinacion05").innerHTML = combinaciones[5];
+                        document.querySelector("#celEstado").innerHTML = estadoColorModelo;
+                        $('#modalViewColorModelo').modal('show');
+                    }else{
+                        swal("Error", objData.msg, "error");
+                    }
+                }
+            }
+        });
+    });
 }
 
 function openModal() {

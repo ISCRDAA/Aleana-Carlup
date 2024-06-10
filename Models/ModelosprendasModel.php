@@ -56,5 +56,24 @@
             }
             return $return;
         }
+
+        public function selectModeloPrenda(int $idmodeloprenda)
+        {
+            $this->intIdModeloPrenda = $idmodeloprenda;
+            $sql = "SELECT
+                        modelo.id_modelo,
+                        modelo.nombre,
+                        tipo.nombre AS tipo_nombre,
+                        modelo.peso_modelo,
+                        modelo.status
+                    FROM
+                        modelo
+                    INNER JOIN
+                        tipo
+                    ON modelo.tipo_id = tipo.id_tipo
+                    WHERE modelo.id_modelo = '{$this->intIdModeloPrenda}'";
+            $request = $this->select($sql);
+            return $request;
+        }
     }
 ?>

@@ -75,3 +75,68 @@
         </div>
     </div>
 </div>
+
+<!-- Modal View-->
+<div class="modal fade" id="modalViewHilosInternacional" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header headerRegister">
+                <h5 class="modal-title" id="titleModal">Datos del Hilo</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+            <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>ID:</td>
+                            <td id="celId">1</td>
+                        </tr>
+                        <tr>
+                            <td>Color:</td>
+                            <td id="celColor">Azul</td>
+                        </tr>
+                        <tr>
+                            <td>Marca:</td>
+                            <td id="celMarca">Aguila</td>
+                        </tr>
+                        <tr>
+                            <td>Teñida:</td>
+                            <td id="celTenida">#12325</td>
+                        </tr>
+                        <tr>
+                            <td>Tipo:</td>
+                            <td id="celTipo">Navidad</td>
+                        </tr>
+                        <tr>
+                            <td>Peso Total:</td>
+                            <td id="celPesoTotal">500</td>
+                        </tr>
+                        <tr>
+                            <td>Empaquetado:</td>
+                            <td id="celEmpaquetado">Caja</td>
+                        </tr>
+                        <tr>
+                            <td>Estado:</td>
+                            <td id="celEstado">Activo</td>
+                        </tr>
+                        <tr>
+                            <td>Fecha de creación:</td>
+                            <td id="celFechaRegistro">05/16/24</td>
+                        </tr>
+                        <tr>
+                            <td>Fecha de actualización:</td>
+                            <td id="celFechaActualizacion">05/16/24</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>

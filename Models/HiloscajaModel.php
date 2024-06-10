@@ -66,5 +66,30 @@
             $return = $request_insert;
             return $return;
         }
+
+        public function selectHiloCaja(int $idhilocaja)
+        {
+            $this->intIdHiloCaja = $idhilocaja;
+            $sql = "SELECT
+                        hcaja.id_hilo_caja,
+                        ch.nombre_color,
+                        hcaja.marca,
+                        hcaja.tenida,
+                        t.nombre AS nombre_tipo,
+                        hcaja.peso_total,
+                        hcaja.tipo_empaquetado,
+                        DATE_FORMAT(hcaja.datecreated, '%d-%m-%Y') AS datecreated,
+                        DATE_FORMAT(hcaja.dateupdate, '%d-%m-%Y') AS dateupdate,
+                        hcaja.status
+                    FROM
+                        hilo_caja AS hcaja
+                    INNER JOIN
+                        colores_hilos AS ch ON hcaja.color_id = ch.id_color
+                    INNER JOIN
+                        tipo AS t ON hcaja.tipo_id = t.id_tipo
+                    WHERE hcaja.id_hilo_caja = '{$this->intIdHiloCaja}'";
+            $request = $this->select($sql);
+            return $request;
+        }
     }
 ?>

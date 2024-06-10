@@ -83,5 +83,40 @@
             }
             return $return;
         }
+
+        public function selectColorModelo(int $idColorModelo)
+        {
+            $this->intIdColorModelo = $idColorModelo;
+            $sql = "SELECT
+                        cm.id_color_modelo,
+                        m.nombre AS nombre_modelo,
+                        ch.nombre_color AS color_base,
+                        ch1.nombre_color AS color_combinacion_01,
+                        ch2.nombre_color AS color_combinacion_02,
+                        ch3.nombre_color AS color_combinacion_03,
+                        ch4.nombre_color AS color_combinacion_04,
+                        ch5.nombre_color AS color_combinacion_05,
+                        cm.status
+                    FROM
+                        color_modelo AS cm
+                    INNER JOIN
+                        colores_hilos AS ch ON cm.color_id = ch.id_color
+                    INNER JOIN
+                        colores_hilos AS ch1 ON cm.combinacion01 = ch1.id_color
+                    INNER JOIN
+                        colores_hilos AS ch2 ON cm.combinacion02 = ch2.id_color
+                    INNER JOIN
+                        colores_hilos AS ch3 ON cm.combinacion03 = ch3.id_color
+                    INNER JOIN
+                        colores_hilos AS ch4 ON cm.combinacion04 = ch4.id_color
+                    INNER JOIN
+                        colores_hilos AS ch5 ON cm.combinacion05 = ch5.id_color
+                    INNER JOIN
+                        modelo AS m ON cm.modelo_id = m.id_modelo
+                    WHERE
+                        cm.id_color_modelo = '{$this->intIdColorModelo}'";
+            $request = $this->select($sql);
+            return $request;
+        }
     }
 ?>

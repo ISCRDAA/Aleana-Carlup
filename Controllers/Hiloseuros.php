@@ -84,5 +84,20 @@
             }
             die();
         }
+
+        public function getHiloEuro(int $idhiloeuro){
+            $idhiloEuro = intval($idhiloeuro);
+            if ($idhiloEuro > 0)
+            {
+                $arrData = $this->model->selectHiloEuro($idhiloEuro);
+                if (empty($arrData)) {
+                    $arrResponse = array('status' => false, 'msg' => 'Datos no encontrados.');
+                } else {
+                    $arrResponse = array('status' => true, 'data' => $arrData);
+                }
+                echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
+            }
+            die();
+        }
     }
 ?>

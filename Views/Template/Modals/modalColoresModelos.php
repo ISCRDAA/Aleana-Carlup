@@ -76,3 +76,64 @@
         </div>
     </div>
 </div>
+
+<!-- Modal View-->
+<div class="modal fade" id="modalViewColorModelo" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header headerRegister">
+                <h5 class="modal-title" id="titleModal">Datos del Hilo</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+            <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>ID:</td>
+                            <td id="celId">1</td>
+                        </tr>
+                        <tr>
+                            <td>Nombre:</td>
+                            <td id="celNombre">Azul</td>
+                        </tr>
+                        <tr>
+                            <td>Color:</td>
+                            <td id="celColor">Aguila</td>
+                        </tr>
+                        <tr>
+                            <td>Combinación 01:</td>
+                            <td id="celCombinacion01">#12325</td>
+                        </tr>
+                        <tr>
+                            <td>Combinación 02:</td>
+                            <td id="celCombinacion02">Navidad</td>
+                        </tr>
+                        <tr>
+                            <td>Combinación 03:</td>
+                            <td id="celCombinacion03">500</td>
+                        </tr>
+                        <tr>
+                            <td>Combinación 04:</td>
+                            <td id="celCombinacion04">Caja</td>
+                        </tr>
+                        <tr>
+                            <td>Combinación 05:</td>
+                            <td id="celCombinacion05">Activo</td>
+                        </tr>
+                        <tr>
+                            <td>Estado::</td>
+                            <td id="celEstado">Activo</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>

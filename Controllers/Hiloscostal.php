@@ -83,5 +83,20 @@
             }
             die();
         }
+
+        public function getHiloCostal(int $idhilocostal){
+            $idHiloCostal = intval($idhilocostal);
+            if ($idHiloCostal > 0)
+            {
+                $arrData = $this->model->selectHiloCostal($idHiloCostal);
+                if (empty($arrData)) {
+                    $arrResponse = array('status' => false, 'msg' => 'Datos no encontrados.');
+                } else {
+                    $arrResponse = array('status' => true, 'data' => $arrData);
+                }
+                echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
+            }
+            die();
+        }
     }
 ?>

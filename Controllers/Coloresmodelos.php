@@ -23,25 +23,23 @@
 
             for ($i = 0; $i < count($arrData); $i++)
             {
-                // Validar cada campo de color
-                $camposColor = array($arrData[$i]['color_combinacion_01'],
-                                    $arrData[$i]['color_combinacion_02'],
-                                    $arrData[$i]['color_combinacion_03'],
-                                    $arrData[$i]['color_combinacion_04'],
-                                    $arrData[$i]['color_combinacion_05']
-                );
+                // Campos de color a verificar
+                $camposColor = [
+                    'color_combinacion_01',
+                    'color_combinacion_02',
+                    'color_combinacion_03',
+                    'color_combinacion_04',
+                    'color_combinacion_05'
+                ];
 
-                // in_array() busca si un valor específico existe en un array. Su sintaxis básica es: in_array($valor_a_buscar, $array_a_buscar);
-                // La función devuelve true si el valor está presente en el array y false si no lo está.
-                if (in_array('No Asignado', $camposColor)) {
-                    $arrData[$i]['color_combinacion_01'] = '<span class="badge badge-danger">No Asignado</span>';
-                    $arrData[$i]['color_combinacion_02'] = '<span class="badge badge-danger">No Asignado</span>';
-                    $arrData[$i]['color_combinacion_03'] = '<span class="badge badge-danger">No Asignado</span>';
-                    $arrData[$i]['color_combinacion_04'] = '<span class="badge badge-danger">No Asignado</span>';
-                    $arrData[$i]['color_combinacion_05'] = '<span class="badge badge-danger">No Asignado</span>';
-                    // Puedes hacer lo mismo para los otros campos de color si es necesario
+                // Iterar sobre cada campo de color
+                foreach ($camposColor as $campo) {
+                    if ($arrData[$i][$campo] == 'No Asignado') {
+                        $arrData[$i][$campo] = '<span class="badge badge-danger">No Asignado</span>';
+                    }
                 }
 
+                // Verificar el status
                 if($arrData[$i]['status'] == 1)
                 {
                     $arrData[$i]['status'] = '<span class="badge badge-success">Activo</span>';
@@ -49,13 +47,13 @@
                     $arrData[$i]['status'] = '<span class="badge badge-danger">Inactivo</span>';
                 }
 
+                // Opciones de botones
                 $arrData[$i]['options'] = '<div class="text-center">
                 <button class="btn btn-info btn-sm btn-sm btnViewColorModelo" cm="'.$arrData[$i]['id_color_modelo'].'" title="Ver Color del modelo"><i class="far fa-eye"></i></button>
                 <button class="btn btn-primary btn-sm btn-sm btnEditColorModelo" cm="'.$arrData[$i]['id_color_modelo'].'" title="Editar Color del modelo"><i class="fas fa-pencil-alt"></i></button>
                 <button class="btn btn-danger btn-sm btn-sm btnDelColorModelo" cm="'.$arrData[$i]['id_color_modelo'].'" title="Eliminar Color del modelo"><i class="fas fa-trash-alt"></i></button>
                                             </div>';
             }
-
             echo json_encode($arrData, JSON_UNESCAPED_UNICODE);
             die();
         }
@@ -94,6 +92,21 @@
                     }else{
                         $arrResponse = array("status" => false, "msg" => 'No es posible almacenar los datos.');
                     }
+                }
+                echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
+            }
+            die();
+        }
+
+        public function getColorModelo(int $idcolormodelo){
+            $idColorModelo = intval($idcolormodelo);
+            if ($idColorModelo > 0)
+            {
+                $arrData = $this->model->selectColorModelo($idColorModelo);
+                if (empty($arrData)) {
+                    $arrResponse = array('status' => false, 'msg' => 'Datos no encontrados.');
+                } else {
+                    $arrResponse = array('status' => true, 'data' => $arrData);
                 }
                 echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
             }

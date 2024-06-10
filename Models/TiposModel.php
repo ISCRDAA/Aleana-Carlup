@@ -38,5 +38,13 @@
             }
             return $return;
         }
+
+        public function selectTipo(int $idtipo)
+        {
+            $this->intIdTipo = $idtipo;
+            $sql = "SELECT * FROM tipo WHERE id_tipo = '{$this->intIdTipo}'";
+            $request = $this->select($sql);
+            return $request;
+        }
     }
 ?>

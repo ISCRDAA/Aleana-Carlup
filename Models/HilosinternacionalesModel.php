@@ -1,7 +1,7 @@
 <?php
     class HilosinternacionalesModel extends Mysql
     {
-        private $intIdHiloEuro;
+        private $intIdHiloInternacional;
         private $intColor;
         private $strMarca;
         private $strTenida;
@@ -65,6 +65,31 @@
             $request_insert = $this->insert($query_insert,$arrData);
             $return = $request_insert;
             return $return;
+        }
+
+        public function selectHiloInternacional(int $idhilointernacional)
+        {
+            $this->intIdHiloInternacional = $idhilointernacional;
+            $sql = "SELECT
+                        hInter.idhilosinternacionales,
+                        ch.nombre_color,
+                        hInter.marca,
+                        hInter.tenida,
+                        t.nombre AS nombre_tipo,
+                        hInter.peso_total,
+                        hInter.tipo_empaquetado,
+                        DATE_FORMAT(hInter.datecreated, '%d-%m-%Y') AS datecreated,
+                        DATE_FORMAT(hInter.dateupdate, '%d-%m-%Y') AS dateupdate,
+                        hInter.status
+                    FROM
+                        hilosinternacionales AS hInter
+                    INNER JOIN
+                        colores_hilos AS ch ON hInter.color_id = ch.id_color
+                    INNER JOIN
+                        tipo AS t ON hInter.tipo_id = t.id_tipo
+                    WHERE hInter.idhilosinternacionales = '{$this->intIdHiloInternacional}'";
+            $request = $this->select($sql);
+            return $request;
         }
     }
 ?>

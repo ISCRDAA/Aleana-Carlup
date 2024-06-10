@@ -84,5 +84,20 @@
             }
             die();
         }
+
+        public function getHiloMiguelGarcia(int $idhilomiguelgarcia){
+            $idHiloMiguelGarcia = intval($idhilomiguelgarcia);
+            if ($idHiloMiguelGarcia > 0)
+            {
+                $arrData = $this->model->selectHiloMiguelGarcia($idHiloMiguelGarcia);
+                if (empty($arrData)) {
+                    $arrResponse = array('status' => false, 'msg' => 'Datos no encontrados.');
+                } else {
+                    $arrResponse = array('status' => true, 'data' => $arrData);
+                }
+                echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
+            }
+            die();
+        }
     }
 ?>

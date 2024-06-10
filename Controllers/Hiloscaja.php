@@ -83,5 +83,20 @@
             }
             die();
         }
+
+        public function getHiloCaja(int $idhilocaja){
+            $idHiloCaja = intval($idhilocaja);
+            if ($idHiloCaja > 0)
+            {
+                $arrData = $this->model->selectHiloCaja($idHiloCaja);
+                if (empty($arrData)) {
+                    $arrResponse = array('status' => false, 'msg' => 'Datos no encontrados.');
+                } else {
+                    $arrResponse = array('status' => true, 'data' => $arrData);
+                }
+                echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
+            }
+            die();
+        }
     }
 ?>

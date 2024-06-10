@@ -37,9 +37,9 @@
                 }
 
                 $arrData[$i]['options'] = '<div class="text-center">
-                <button class="btn btn-info btn-sm btn-sm btnViewHiloEuro" he="'.$arrData[$i]['idhilososcardominguez'].'" title="Ver hilo euro"><i class="fas fa-eye"></i></button>
-                <button class="btn btn-primary btn-sm btn-sm btnEditHiloEuro" he="'.$arrData[$i]['idhilososcardominguez'].'" title="Editar hilo euro"><i class="fas fa-pencil-alt"></i></button>
-                <button class="btn btn-danger btn-sm btn-sm btnDelHiloEuro" he="'.$arrData[$i]['idhilososcardominguez'].'" title="Eliminar hilo euro"><i class="fas fa-trash-alt"></i></button>
+                <button class="btn btn-info btn-sm btn-sm btnViewHiloOscarDominguez" hod="'.$arrData[$i]['idhilososcardominguez'].'" title="Ver hilo oscar dominguez"><i class="fas fa-eye"></i></button>
+                <button class="btn btn-primary btn-sm btn-sm btnEditHiloOscarDominguez" hod="'.$arrData[$i]['idhilososcardominguez'].'" title="Editar hilo oscar dominguez"><i class="fas fa-pencil-alt"></i></button>
+                <button class="btn btn-danger btn-sm btn-sm btnDelHiloOscarDominguez" hod="'.$arrData[$i]['idhilososcardominguez'].'" title="Eliminar hilo oscar dominguez"><i class="fas fa-trash-alt"></i></button>
                                             </div>';
             }
 
@@ -79,6 +79,21 @@
                     }else{
                         $arrResponse = array("status" => false, "msg" => 'No es posible almacenar los datos.');
                     }
+                }
+                echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
+            }
+            die();
+        }
+
+        public function getHiloOscarDominguez(int $idhilooscardominguez){
+            $idHiloOscarDominguez = intval($idhilooscardominguez);
+            if ($idHiloOscarDominguez > 0)
+            {
+                $arrData = $this->model->selectHiloOscarDominguez($idHiloOscarDominguez);
+                if (empty($arrData)) {
+                    $arrResponse = array('status' => false, 'msg' => 'Datos no encontrados.');
+                } else {
+                    $arrResponse = array('status' => true, 'data' => $arrData);
                 }
                 echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
             }

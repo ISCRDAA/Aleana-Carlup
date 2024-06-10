@@ -74,6 +74,7 @@ $('#tableHilosInternacionales').DataTable();
 window.addEventListener('load', function() {
     fntColores();
     fntTiposPrendas();
+    fntViewHiloInternacional();
 }, false);
 
 function fntColores(){
@@ -104,6 +105,43 @@ function fntTiposPrendas(){
             $('#listTipo').selectpicker('render');
         }
     }
+}
+
+function fntViewHiloInternacional(){
+    var btnViewHiloInternacional = document.querySelectorAll('.btnViewHiloInternacional');
+    btnViewHiloInternacional.forEach(function(btnViewHiloInternacional){
+        btnViewHiloInternacional.addEventListener('click', function(){
+            var idhilointernacional = this.getAttribute("hi");
+            var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+            var ajaxUrl = base_url+'/Hilosinternacionales/getHiloInternacional/'+idhilointernacional;
+            request.open("GET",ajaxUrl,true);
+            request.send();
+            request.onreadystatechange = function(){
+                if (request.readyState == 4 && request.status == 200) {
+                    var objData = JSON.parse(request.responseText);
+                    if (objData.status)
+                    {
+                        var estadoHiloInternacional = objData.data.status == 1 ?
+                        '<span class="badge badge-success">Activo</span>' :
+                        '<span class="badge badge-danger">Inactivo</span>';
+                        document.querySelector("#celId").innerHTML = objData.data.idhilosinternacionales;
+                        document.querySelector("#celColor").innerHTML = objData.data.nombre_color;
+                        document.querySelector("#celMarca").innerHTML = objData.data.marca;
+                        document.querySelector("#celTenida").innerHTML = objData.data.tenida;
+                        document.querySelector("#celTipo").innerHTML = objData.data.nombre_tipo;
+                        document.querySelector("#celPesoTotal").innerHTML = objData.data.peso_total;
+                        document.querySelector("#celEmpaquetado").innerHTML = objData.data.tipo_empaquetado;
+                        document.querySelector("#celEstado").innerHTML = estadoHiloInternacional;
+                        document.querySelector("#celFechaRegistro").innerHTML = objData.data.datecreated;
+                        document.querySelector('#celFechaActualizacion').innerHTML = objData.data.dateupdate;
+                        $('#modalViewHilosInternacional').modal('show');
+                    }else{
+                        swal("Error", objData.msg, "error");
+                    }
+                }
+            }
+        });
+    });
 }
 
 function openModal(){

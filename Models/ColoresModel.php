@@ -37,5 +37,13 @@
             }
             return $return;
         }
+
+        public function selectColor(int $idcolor)
+        {
+            $this->intIdColor = $idcolor;
+            $sql = "SELECT * FROM colores_hilos WHERE id_color = '{$this->intIdColor}'";
+            $request = $this->select($sql);
+            return $request;
+        }
     }
 ?>

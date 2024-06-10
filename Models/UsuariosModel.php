@@ -72,5 +72,32 @@
             }
             return $return;
         }
+
+        public function selectUsuario(int $idpersona)
+        {
+            $this->intIdUsuario = $idpersona;
+            $sql = "SELECT
+                        P.idpersona,
+                        P.identificacion,
+                        P.nombres,
+                        P.apellidos,
+                        P.telefono,
+                        P.email_user,
+                        P.nit,
+                        P.nombrefiscal,
+                        P.direccionfiscal,
+                        R.idrol,
+                        R.nombrerol,
+                        P.status,
+                        DATE_FORMAT(P.datecreated, '%d-%m-%Y') AS fechaRegistro
+                    FROM
+                        z_persona AS P
+                    INNER JOIN
+                        z_rol AS R
+                    ON P.rolid = R.idrol
+                    WHERE P.idpersona = '{$this->intIdUsuario}'";
+            $request = $this->select($sql);
+            return $request;
+        }
     }
 ?>

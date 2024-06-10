@@ -1,7 +1,7 @@
 <?php
     class HilosmiguelgarciaModel extends Mysql
     {
-        private $intIdHiloEuro;
+        private $intIdHiloMiguelGarcia;
         private $intColor;
         private $strMarca;
         private $strTenida;
@@ -65,6 +65,31 @@
             $request_insert = $this->insert($query_insert,$arrData);
             $return = $request_insert;
             return $return;
+        }
+
+        public function selectHiloMiguelGarcia(int $idhilomiguelgarcia)
+        {
+            $this->intIdHiloMiguelGarcia = $idhilomiguelgarcia;
+            $sql = "SELECT
+                        hMiguelG.idhilosmiguelgarcia,
+                        ch.nombre_color,
+                        hMiguelG.marca,
+                        hMiguelG.tenida,
+                        t.nombre AS nombre_tipo,
+                        hMiguelG.peso_total,
+                        hMiguelG.tipo_empaquetado,
+                        DATE_FORMAT(hMiguelG.datecreated, '%d-%m-%Y') AS datecreated,
+                        DATE_FORMAT(hMiguelG.dateupdate, '%d-%m-%Y') AS dateupdate,
+                        hMiguelG.status
+                    FROM
+                        hilosmiguelgarcia AS hMiguelG
+                    INNER JOIN
+                        colores_hilos AS ch ON hMiguelG.color_id = ch.id_color
+                    INNER JOIN
+                        tipo AS t ON hMiguelG.tipo_id = t.id_tipo
+                    WHERE hMiguelG.idhilosmiguelgarcia = '{$this->intIdHiloMiguelGarcia}'";
+            $request = $this->select($sql);
+            return $request;
         }
     }
 ?>

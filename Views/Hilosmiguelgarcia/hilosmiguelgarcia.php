@@ -1,6 +1,6 @@
 <?php
         headerAdmin($data);
-        getModal('modalHilosMigelGarcia', $data);
+        getModal('modalHilosMiguelGarcia', $data);
     ?>
         <main class="app-content">
             <div class="app-title">

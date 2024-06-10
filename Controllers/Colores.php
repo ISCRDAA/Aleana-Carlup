@@ -80,5 +80,20 @@
             }
             die();
         }
+
+        public function getColor(int $idcolor){
+            $idColor = intval($idcolor);
+            if ($idColor > 0)
+            {
+                $arrData = $this->model->selectColor($idColor);
+                if (empty($arrData)) {
+                    $arrResponse = array('status' => false, 'msg' => 'Datos no encontrados.');
+                } else {
+                    $arrResponse = array('status' => true, 'data' => $arrData);
+                }
+                echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
+            }
+            die();
+        }
     }
 ?>
