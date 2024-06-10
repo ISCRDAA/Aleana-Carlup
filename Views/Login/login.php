@@ -28,9 +28,9 @@
                         <div class="card-header">Incio de sesion</div>
                         <div class="login-box card-body">
 
-                            <div id="divLoading" >
+                            <div id="divLoading" class="d-flex justify-content-center align-items-center"> 
                                 <div>
-                                    <img src="<?= media(); ?>/images/loading.svg" alt="Loading">
+                                    <img class="img-fluid" src="<?= media(); ?>/images/avatar.png" alt="Loading">
                                 </div>    
                             </div>
 

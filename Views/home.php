@@ -76,14 +76,12 @@
     <div class="container_AC">
         <div class="row_AC">
             <div class="col_AC s12_AC">
-                <h1 class="center-align_AC titulo_AC">Titulo_Principal</h1>
+                <h1 class="center-align_AC titulo_AC">Nuestros Modelos</h1>
 
                 <div class="carousel center-align_AC">
 
                     <div class="carousel-item">
                         <h2 class="subtitulo_AC"></h2>
-                        <div class="linea-division_AC"></div>
-                        <p class="sabor_AC">Modelo_Caracteristica</p>
                         <img loading="lazy" src="<?= media(); ?>/images/uploads/Modelo31frente.jpeg" alt="">
                     </div>
 
