@@ -53,6 +53,7 @@
                 if (empty($_POST['listColor']) || empty($_POST['txtMarca']) || empty($_POST['txtTenida']) || empty($_POST['listTipo']) || empty($_POST['txtPesoTotal']) || empty($_POST['listTipoEmpaquetado']) || empty($_POST['listStatus'])) {
                     $arrResponse = array("status" => false, "msg" => 'Datos incorrectos.');
                 } else {
+                    $idHiloCaja = intval($_POST['idHilosCaja']);
                     $intColor = intval(strClean($_POST['listColor']));
                     $strMarca = ucwords(strClean($_POST['txtMarca']));
                     $strTenida = '#'.ucwords(strClean($_POST['txtTenida']));
@@ -63,7 +64,9 @@
 
                     $fechaCliente = date("Y-m-d H:i:s"); // Capturar la fecha y hora actuales del servidor
 
-                    $request_hilocaja = $this->model->insertHilocaja($intColor,
+                    if ($idHiloCaja == 0) {
+                        $option = 1;
+                        $request_hilocaja = $this->model->insertHilocaja($intColor,
                                                                     $strMarca,
                                                                     $strTenida,
                                                                     $intTipo,
@@ -71,10 +74,26 @@
                                                                     $strTipoEmpaquetado,
                                                                     $fechaCliente,
                                                                     $intStatus);
+                    }else{
+                        $option = 2;
+                        $request_hilocaja = $this->model->updateHilocaja($idHiloCaja,
+                                                                    $intColor,
+                                                                    $strMarca,
+                                                                    $strTenida,
+                                                                    $intTipo,
+                                                                    $intPeso,
+                                                                    $strTipoEmpaquetado,
+                                                                    $fechaCliente,
+                                                                    $intStatus);
+                    }
 
                     if ($request_hilocaja > 0)
                     {
-                        $arrResponse = array("status" => true, "msg" => 'Datos guardados correctamente.');
+                        if ($option == 1) {
+                            $arrResponse = array("status" => true, "msg" => 'Datos guardados correctamente.');
+                        }else{
+                            $arrResponse = array("status" => true, "msg" => 'Datos Actualizados correctamente.');
+                        }
                     }else{
                         $arrResponse = array("status" => false, "msg" => 'No es posible almacenar los datos.');
                     }

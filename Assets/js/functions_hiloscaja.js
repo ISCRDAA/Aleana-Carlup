@@ -60,6 +60,10 @@ document.addEventListener('DOMContentLoaded', function(){
                     formHilocaja.reset();
                     swal("Hilos Aguila", objData.msg, "success");
                     tableHilosCaja.ajax.reload(function(){
+                        fntColores();
+                        fntTiposPrendas();
+                        fntViewHiloCaja();
+                        fntEditHiloCaja();
                     });
                 } else {
                     swal("Error", objData.msg, "error");
@@ -75,6 +79,7 @@ window.addEventListener('load', function() {
     fntColores();
     fntTiposPrendas();
     fntViewHiloCaja();
+    fntEditHiloCaja();
 }, false);
 
 function fntColores(){
@@ -139,6 +144,54 @@ function fntViewHiloCaja(){
                         swal("Error", objData.msg, "error");
                     }
                 }
+            }
+        });
+    });
+}
+
+function fntEditHiloCaja(){
+    var btnEditHiloCaja = document.querySelectorAll('.btnEditHiloCaja');
+    btnEditHiloCaja.forEach(function(btnEditHiloCaja){
+        btnEditHiloCaja.addEventListener('click', function(){
+
+            document.querySelector('#titleModal').innerHTML = "Actualizar Hilo";
+            document.querySelector('.modal-header').classList.replace("headerRegister", "headerUpdate");
+            document.querySelector('#btnActionForm').classList.replace("btn-primary", "btn-info");
+            document.querySelector('#btnText').innerHTML = "Actualizar";
+
+            var idhilocaja = this.getAttribute("hca");
+            var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+            var ajaxUrl = base_url+'/Hiloscaja/getHiloCaja/'+idhilocaja;
+            request.open("GET",ajaxUrl,true);
+            request.send();
+            request.onreadystatechange = function(){
+                if (request.readyState == 4 && request.status == 200) {
+                    var objData = JSON.parse(request.responseText);
+                    if (objData.status)
+                    {
+                        // Llenar los selectores antes de mostrar el modal
+                        document.querySelector('#idHilosCaja').value = objData.data.id_hilo_caja;
+                        document.querySelector('#listColor').value  = objData.data.nombre_color;
+                        document.querySelector('#txtMarca').value  = objData.data.marca;
+                        document.querySelector('#txtTenida').value  = objData.data.tenida;
+                        document.querySelector('#listTipo').value  = objData.data.nombre_tipo;
+                        document.querySelector('#txtPesoTotal').value  = objData.data.peso_total;
+                        document.querySelector('#listTipoEmpaquetado').value = objData.data.tipo_empaquetado;
+
+                        // Render selectpickers for the updated selects
+                        $('#listColor').selectpicker('render');
+                        $('#listTipo').selectpicker('render');
+                        $('#listTipoEmpaquetado').selectpicker('render');
+
+                        if (objData.data.status == 1) {
+                            document.querySelector("#listStatus").value = 1
+                        } else {
+                            document.querySelector("#listStatus").value = 2;
+                        }
+                        $('#listStatus').selectpicker('render');
+                    }
+                }
+                $('#modalFormHilosCaja').modal('show');
             }
         });
     });
