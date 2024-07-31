@@ -63,6 +63,7 @@
             $sql = "SELECT
                         modelo.id_modelo,
                         modelo.nombre,
+                        tipo.id_tipo AS tipo_id,
                         tipo.nombre AS tipo_nombre,
                         modelo.peso_modelo,
                         modelo.status

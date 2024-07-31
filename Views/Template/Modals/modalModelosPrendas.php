@@ -21,16 +21,16 @@
                             <input type="text" class="form-control" id="txtNombre" name="txtNombre" required="">
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="listTipo">Tipo</label>
-                            <select class="form-control" data-live-search="true" id="listTipo" name="listTipo" required="">
-                            </select>
+                            <label for="txtPeso">Peso</label>
+                            <input type="text" class="form-control" id="txtPeso" name="txtPeso" required="">
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="txtPeso">Peso</label>
-                            <input type="text" class="form-control" id="txtPeso" name="txtPeso" required="">
+                            <label for="listTipo">Tipo</label>
+                            <select class="form-control" data-live-search="true" id="listTipo" name="listTipo" required="">
+                            </select>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="listStatus">Status</label>

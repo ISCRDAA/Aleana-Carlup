@@ -163,6 +163,8 @@ function fntEditUsuario(){
                             document.querySelector("#listStatus").value = 2;
                         }
                         $('#listStatus').selectpicker('render');
+                    }else{
+                        swal("Error", objData.msg, "error");
                     }
                 }
                 $('#modalFormUsuario').modal('show');

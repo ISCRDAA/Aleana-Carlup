@@ -115,6 +115,7 @@
             $request = $this->select_all($sql);
 
             if (empty($request)) {
+
                 if ($this->strPassword != "")
                 {
                     $sql = "UPDATE z_persona SET identificacion=?, nombres=?, apellidos=?, telefono=?, email_user=?, password=?, rolid=?, status=? WHERE idpersona = '{$this->intIdUsuario}'";

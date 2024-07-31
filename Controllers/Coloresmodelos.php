@@ -25,6 +25,7 @@
             {
                 // Campos de color a verificar
                 $camposColor = [
+                    'color_base',
                     'color_combinacion_01',
                     'color_combinacion_02',
                     'color_combinacion_03',

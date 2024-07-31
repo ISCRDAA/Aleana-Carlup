@@ -171,10 +171,10 @@ function fntEditHiloCaja(){
                     {
                         // Llenar los selectores antes de mostrar el modal
                         document.querySelector('#idHilosCaja').value = objData.data.id_hilo_caja;
-                        document.querySelector('#listColor').value  = objData.data.nombre_color;
+                        document.querySelector('#listColor').value  = objData.data.color_id;
                         document.querySelector('#txtMarca').value  = objData.data.marca;
                         document.querySelector('#txtTenida').value  = objData.data.tenida;
-                        document.querySelector('#listTipo').value  = objData.data.nombre_tipo;
+                        document.querySelector('#listTipo').value  = objData.data.tipo_id;
                         document.querySelector('#txtPesoTotal').value  = objData.data.peso_total;
                         document.querySelector('#listTipoEmpaquetado').value = objData.data.tipo_empaquetado;
 

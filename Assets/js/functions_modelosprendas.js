@@ -70,6 +70,7 @@ $('#tableModelosprendas').DataTable();
 window.addEventListener('load', function() {
     fntTiposPrendas();
     fntViewModeloPrenda();
+    fntEditModeloPrenda();
 }, false);
 
 function fntTiposPrendas(){
@@ -114,6 +115,49 @@ function fntViewModeloPrenda(){
                         swal("Error", objData.msg, "error");
                     }
                 }
+            }
+        });
+    });
+}
+
+function fntEditModeloPrenda(){
+    var btnEditModeloPrenda = document.querySelectorAll('.btnEditModeloPrenda');
+    btnEditModeloPrenda.forEach(function(btnEditModeloPrenda){
+        btnEditModeloPrenda.addEventListener('click', function(){
+
+            document.querySelector('#titleModal').innerHTML = "Actualizar Modelos";
+            document.querySelector('.modal-header').classList.replace("headerRegister", "headerUpdate");
+            document.querySelector('#btnActionForm').classList.replace("btn-primary", "btn-info");
+            document.querySelector('#btnText').innerHTML = "Actualizar";
+
+            var idmodeloprenda = this.getAttribute("mp");
+            var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+            var ajaxUrl = base_url+'/Modelosprendas/getModeloPrenda/'+idmodeloprenda;
+            request.open("GET",ajaxUrl,true);
+            request.send();
+            request.onreadystatechange = function(){
+                if (request.readyState == 4 && request.status == 200) {
+                    var objData = JSON.parse(request.responseText);
+                    if (objData.status)
+                    {
+                        document.querySelector("#idModeloPrenda").value = objData.data.id_modelo;
+                        document.querySelector("#txtNombre").value = objData.data.nombre;
+                        document.querySelector("#listTipo").value = objData.data.tipo_id;
+                        document.querySelector("#txtPeso").value = objData.data.peso_modelo;
+                        $('#listTipo').selectpicker('render');
+
+                        if (objData.data.status == 1) {
+                            document.querySelector("#listStatus").value = 1;
+                        } else {
+                            document.querySelector("#listStatus").value = 2;
+                        }
+                        $('#listStatus').selectpicker('render');
+                    }else{
+                        swal("Error", objData.msg, "error");
+                    }
+                }
+                $('#modalFormModeloPrenda').modal('show');
+
             }
         });
     });

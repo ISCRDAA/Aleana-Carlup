@@ -77,6 +77,7 @@ window.addEventListener('load', function() {
     fntModelosPrendas();
     fntColoresCombinaciones();
     fntViewColorModelo();
+    fntEditColorModelo();
 }, false);
 
 function fntColores(){
@@ -166,6 +167,58 @@ function fntViewColorModelo(){
                     }else{
                         swal("Error", objData.msg, "error");
                     }
+                }
+            }
+        });
+    });
+}
+
+function fntEditColorModelo(){
+    var btnEditColorModelo = document.querySelectorAll('.btnEditColorModelo');
+    btnEditColorModelo.forEach(function(btnEditColorModelo){
+        btnEditColorModelo.addEventListener('click', function(){
+
+            document.querySelector('#titleModal').innerHTML = "Actualizar Colores del Modelo";
+            document.querySelector('.modal-header').classList.replace("headerRegister", "headerUpdate");
+            document.querySelector('#btnActionForm').classList.replace("btn-primary", "btn-info");
+            document.querySelector('#btnText').innerHTML = "Actualizar";
+
+            var idcolormodelo = this.getAttribute("cm");
+            var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+            var ajaxUrl = base_url+'/Coloresmodelos/getColorModelo/'+idcolormodelo;
+            request.open("GET",ajaxUrl,true);
+            request.send();
+            request.onreadystatechange = function(){
+                if (request.readyState == 4 && request.status == 200) {
+                    var objData = JSON.parse(request.responseText);
+                    if (objData.status)
+                    {
+                        document.querySelector("#idColorModelo").value = objData.data.id_color_modelo;
+                        document.querySelector("#listModelo").value = objData.data.id_modelo;
+                        document.querySelector("#listColor").value = objData.data.color_base_id;
+                        document.querySelector("#listCombinacion01").value = objData.data.color_combinacion_01_id;
+                        document.querySelector("#listCombinacion02").value = objData.data.color_combinacion_02_id;
+                        document.querySelector("#listCombinacion03").value = objData.data.color_combinacion_03_id;
+                        document.querySelector("#listCombinacion04").value = objData.data.color_combinacion_04_id;
+                        document.querySelector("#listCombinacion05").value = objData.data.color_combinacion_05_id;
+                        $('#listModelo').selectpicker('render');
+                        $('#listColor').selectpicker('render');
+                        $('#listCombinacion01').selectpicker('render');
+                        $('#listCombinacion02').selectpicker('render');
+                        $('#listCombinacion03').selectpicker('render');
+                        $('#listCombinacion04').selectpicker('render');
+                        $('#listCombinacion05').selectpicker('render');
+
+                        if (objData.data.status == 1) {
+                            document.querySelector("#listStatus").value = 1;
+                        } else {
+                            document.querySelector("#listStatus").value = 2;
+                        }
+                        $('#listStatus').selectpicker('render');
+                    }else{
+                        swal("Error", objData.msg, "error");
+                    }
+                    $('#modalFormColorModelo').modal('show');
                 }
             }
         });

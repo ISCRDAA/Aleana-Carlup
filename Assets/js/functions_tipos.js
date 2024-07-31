@@ -62,6 +62,7 @@ $('#tableTipos').DataTable();
 
 window.addEventListener('load', function() {
     fntViewTipo();
+    fntEditTipo();
 }, false);
 
 function fntViewTipo(){
@@ -89,6 +90,45 @@ function fntViewTipo(){
                         swal("Error", objData.msg, "error");
                     }
                 }
+            }
+        });
+    });
+}
+
+function fntEditTipo(){
+    var btnEditTipo = document.querySelectorAll('.btnEditTipo');
+    btnEditTipo.forEach(function(btnEditTipo){
+        btnEditTipo.addEventListener('click', function(){
+
+            document.querySelector('#titleModal').innerHTML = "Actualizar Tipo";
+            document.querySelector('.modal-header').classList.replace("headerRegister", "headerUpdate");
+            document.querySelector('#btnActionForm').classList.replace("btn-primary", "btn-info");
+            document.querySelector('#btnText').innerHTML = "Actualizar";
+
+            var idtipo = this.getAttribute("tp");
+            var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+            var ajaxUrl = base_url+'/Tipos/getTipo/'+idtipo;
+            request.open("GET",ajaxUrl,true);
+            request.send();
+            request.onreadystatechange = function(){
+                if (request.readyState == 4 && request.status == 200) {
+                    var objData = JSON.parse(request.responseText);
+                    if (objData.status)
+                    {
+                        document.querySelector("#idTipo").value = objData.data.id_tipo;
+                        document.querySelector("#txtTipo").value = objData.data.nombre;
+
+                        if (objData.data.status == 1) {
+                            document.querySelector("#listStatus").value = 1;
+                        } else {
+                            document.querySelector("#listStatus").value = 2;
+                        }
+                        $('#listStatus').selectpicker('render');
+                    }else{
+                        swal("Error", objData.msg, "error");
+                    }
+                }
+                $('#modalFormTipo').modal('show');
             }
         });
     });

@@ -72,10 +72,12 @@
             $this->intIdHiloCaja = $idhilocaja;
             $sql = "SELECT
                         hcaja.id_hilo_caja,
-                        ch.nombre_color,
+                        ch.id_color AS color_id,
+                        ch.nombre_color AS color_nombre,
                         hcaja.marca,
                         hcaja.tenida,
-                        t.nombre AS nombre_tipo,
+                        t.id_tipo AS tipo_id,
+                        t.nombre AS tipo_nombre,
                         hcaja.peso_total,
                         hcaja.tipo_empaquetado,
                         DATE_FORMAT(hcaja.datecreated, '%d-%m-%Y') AS datecreated,

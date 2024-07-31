@@ -89,12 +89,19 @@
             $this->intIdColorModelo = $idColorModelo;
             $sql = "SELECT
                         cm.id_color_modelo,
+                        m.id_modelo AS id_modelo,
                         m.nombre AS nombre_modelo,
+                        ch.id_color AS color_base_id,
                         ch.nombre_color AS color_base,
+                        ch1.id_color AS color_combinacion_01_id,
                         ch1.nombre_color AS color_combinacion_01,
+                        ch2.id_color AS color_combinacion_02_id,
                         ch2.nombre_color AS color_combinacion_02,
+                        ch3.id_color AS color_combinacion_03_id,
                         ch3.nombre_color AS color_combinacion_03,
+                        ch4.id_color AS color_combinacion_04_id,
                         ch4.nombre_color AS color_combinacion_04,
+                        ch5.id_color AS color_combinacion_05_id,
                         ch5.nombre_color AS color_combinacion_05,
                         cm.status
                     FROM
