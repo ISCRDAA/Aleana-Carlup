@@ -75,6 +75,7 @@ window.addEventListener('load', function() {
     fntColores();
     fntTiposPrendas();
     fntViewHiloEuro();
+    fntEditHiloEuro();
 }, false);
 
 function fntColores(){
@@ -139,6 +140,56 @@ function fntViewHiloEuro(){
                         swal("Error", objData.msg, "error");
                     }
                 }
+            }
+        });
+    });
+}
+
+function fntEditHiloEuro(){
+    var btnEditHiloEuro = document.querySelectorAll('.btnEditHiloEuro');
+    btnEditHiloEuro.forEach(function(btnEditHiloEuro){
+        btnEditHiloEuro.addEventListener('click', function(){
+
+            document.querySelector('#titleModal').innerHTML = "Actualizar Hilo";
+            document.querySelector('.modal-header').classList.replace("headerRegister", "headerUpdate");
+            document.querySelector('#btnActionForm').classList.replace("btn-primary", "btn-info");
+            document.querySelector('#btnText').innerHTML = "Actualizar";
+
+            var idhiloeuro = this.getAttribute("he");
+            var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+            var ajaxUrl = base_url+'/Hiloseuros/getHiloEuro/'+idhiloeuro;
+            request.open("GET",ajaxUrl,true);
+            request.send();
+            request.onreadystatechange = function(){
+                if (request.readyState == 4 && request.status == 200) {
+                    var objData = JSON.parse(request.responseText);
+                    if (objData.status)
+                    {
+                        // Llenar los selectores antes de mostrar el modal
+                        document.querySelector("#idHilosEuros").value = objData.data.idhiloseuros;
+                        document.querySelector("#listColor").value = objData.data.color_id;
+                        document.querySelector("#txtMarca").value = objData.data.marca;
+                        document.querySelector("#txtTenida").value = objData.data.tenida;
+                        document.querySelector("#listTipo").value = objData.data.tipo_id;
+                        document.querySelector("#txtPesoTotal").value = objData.data.peso_total;
+                        document.querySelector("#listTipoEmpaquetado").value = objData.data.tipo_empaquetado;
+
+                        // Render selectpickers for the updated selects
+                        $('#listColor').selectpicker('render');
+                        $('#listTipo').selectpicker('render');
+                        $('#listTipoEmpaquetado').selectpicker('render');
+
+                        if (objData.data.status == 1) {
+                            document.querySelector("#listStatus").value = 1
+                        } else {
+                            document.querySelector("#listStatus").value = 2;
+                        }
+                        $('#listStatus').selectpicker('render');
+                    }else{
+                        swal("Error", objData.msg, "error");
+                    }
+                }
+                $('#modalFormHilosEuros').modal('show');
             }
         });
     });

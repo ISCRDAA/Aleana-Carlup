@@ -72,10 +72,12 @@
             $this->intIdHiloInternacional = $idhilointernacional;
             $sql = "SELECT
                         hInter.idhilosinternacionales,
-                        ch.nombre_color,
+                        ch.id_color AS color_id,
+                        ch.nombre_color AS color_nombre,
                         hInter.marca,
                         hInter.tenida,
-                        t.nombre AS nombre_tipo,
+                        t.id_tipo AS tipo_id,
+                        t.nombre AS tipo_nombre,
                         hInter.peso_total,
                         hInter.tipo_empaquetado,
                         DATE_FORMAT(hInter.datecreated, '%d-%m-%Y') AS datecreated,

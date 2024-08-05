@@ -72,10 +72,12 @@
             $this->intIdHiloCostal = $idhilocostal;
             $sql = "SELECT
                         hCostal.id_hilo_costal,
-                        ch.nombre_color,
+                        ch.id_color AS color_id,
+                        ch.nombre_color AS color_nombre,
                         hCostal.marca,
                         hCostal.tenida,
-                        t.nombre AS nombre_tipo,
+                        t.id_tipo AS tipo_id,
+                        t.nombre AS tipo_nombre,
                         hCostal.peso_total,
                         hCostal.tipo_empaquetado,
                         DATE_FORMAT(hCostal.datecreated, '%d-%m-%Y') AS datecreated,
