@@ -60,6 +60,10 @@ document.addEventListener('DOMContentLoaded', function(){
                     formHilocostal.reset();
                     swal("Hilos Coperativa", objData.msg, "success");
                     tableHilosCostal.ajax.reload(function(){
+                        fntColores();
+                        fntTiposPrendas();
+                        fntViewHiloCostal();
+                        fntEditHiloCoperativa();
                     });
                 } else {
                     swal("Error", objData.msg, "error");
@@ -126,10 +130,10 @@ function fntViewHiloCostal(){
                         '<span class="badge badge-success">Activo</span>' :
                         '<span class="badge badge-danger">Inactivo</span>';
                         document.querySelector("#celId").innerHTML = objData.data.id_hilo_costal;
-                        document.querySelector("#celColor").innerHTML = objData.data.nombre_color;
+                        document.querySelector("#celColor").innerHTML = objData.data.color_nombre;
                         document.querySelector("#celMarca").innerHTML = objData.data.marca;
                         document.querySelector("#celTenida").innerHTML = objData.data.tenida;
-                        document.querySelector("#celTipo").innerHTML = objData.data.nombre_tipo;
+                        document.querySelector("#celTipo").innerHTML = objData.data.tipo_nombre;
                         document.querySelector("#celPesoTotal").innerHTML = objData.data.peso_total;
                         document.querySelector("#celEmpaquetado").innerHTML = objData.data.tipo_empaquetado;
                         document.querySelector("#celEstado").innerHTML = estadoHiloCostal;

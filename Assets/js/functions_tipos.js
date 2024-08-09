@@ -48,7 +48,8 @@ document.addEventListener('DOMContentLoaded', function(){
                     formTipo.reset();
                     swal("Tipo", objData.msg, "success")
                     tableTipos.ajax.reload(function(){
-
+                        fntViewTipo();
+                        fntEditTipo();
                     });
                 } else {
                     swal("Error", objData.msg, "error");

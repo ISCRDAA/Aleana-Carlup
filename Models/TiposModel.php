@@ -27,7 +27,8 @@
             $sql = "SELECT * FROM tipo WHERE nombre = '{$this->strTipo}'";
             $request = $this->select_all($sql);
 
-            if (empty($request)) {
+            if (empty($request))
+            {
                 $query_insert = "INSERT INTO tipo(nombre,status) VALUES (?,?)";
                 $arrData = array($this->strTipo,
                                 $this->intStatus);
@@ -44,6 +45,26 @@
             $this->intIdTipo = $idtipo;
             $sql = "SELECT * FROM tipo WHERE id_tipo = '{$this->intIdTipo}'";
             $request = $this->select($sql);
+            return $request;
+        }
+
+        public function updateTipo(int $idtipo ,string $tipo, int $status)
+        {
+            $this->intIdTipo = $idtipo;
+            $this->strTipo = $tipo;
+            $this->intStatus = $status;
+
+            $sql = "SELECT * FROM tipo WHERE (nombre = '{$this->strTipo}' and id_tipo != '{$this->intIdTipo}')";
+            $request = $this->select_all($sql);
+
+            if (empty($request)) {
+                $sql = "UPDATE tipo SET nombre=?, status=? WHERE id_tipo = '{$this->intIdTipo}'";
+                $arrData = array($this->strTipo,
+                                $this->intStatus);
+                $request = $this->update($sql,$arrData);
+            } else {
+                $request = "exist";
+            }
             return $request;
         }
     }

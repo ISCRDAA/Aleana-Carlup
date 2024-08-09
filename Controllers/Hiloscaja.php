@@ -50,6 +50,7 @@
         public function setHilocaja()
         {
             if ($_POST) {
+                //dep($_POST);die();
                 if (empty($_POST['listColor']) || empty($_POST['txtMarca']) || empty($_POST['txtTenida']) || empty($_POST['listTipo']) || empty($_POST['txtPesoTotal']) || empty($_POST['listTipoEmpaquetado']) || empty($_POST['listStatus'])) {
                     $arrResponse = array("status" => false, "msg" => 'Datos incorrectos.');
                 } else {
@@ -90,7 +91,7 @@
                     if ($request_hilocaja > 0)
                     {
                         if ($option == 1) {
-                            $arrResponse = array("status" => true, "msg" => 'Datos guardados correctamente.');
+                            $arrResponse = array("status" => true, "msg" => 'Datos Guardados correctamente.');
                         }else{
                             $arrResponse = array("status" => true, "msg" => 'Datos Actualizados correctamente.');
                         }

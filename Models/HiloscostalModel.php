@@ -41,7 +41,7 @@
             return $request;
         }
 
-        public function insertHilocaja(int $color, string $marca, string $tenida, int $tipo, int $peso, string $tipoempaquetado, string $fechaupdate, int $status)
+        public function insertHilocostal(int $color, string $marca, string $tenida, int $tipo, int $peso, string $tipoempaquetado, string $fechaupdate, int $status)
         {
             $this->intColor = $color;
             $this->strMarca = $marca;
@@ -91,6 +91,31 @@
                         tipo AS t ON hCostal.tipo_id = t.id_tipo
                     WHERE hCostal.id_hilo_costal = '{$this->intIdHiloCostal}'";
             $request = $this->select($sql);
+            return $request;
+        }
+
+        public function updatetHilocostal(int $idhilocostal, int $color, string $marca, string $tenida, int $tipo, int $peso, string $tipoEmpaquetado, string $fechaupdate,int $status)
+        {
+            $this->intIdHiloCostal = $idhilocostal;
+            $this->intColor = $color;
+            $this->strMarca = $marca;
+            $this->strTenida = $tenida;
+            $this->intTipo = $tipo;
+            $this->intPeso = $peso;
+            $this->strTipoEmpaquetado = $tipoEmpaquetado;
+            $this->strfechaUpdate = $fechaupdate;
+            $this->intStatus = $status;
+
+            $sql = "UPDATE hilo_costal SET color_id=?, marca=?, tenida=?, tipo_id=?, peso_total=?, tipo_empaquetado=?, dateupdate=?, status=? WHERE id_hilo_costal = '{$this->intIdHiloCostal}'";
+            $arrData = array($this->intColor,
+                            $this->strMarca,
+                            $this->strTenida,
+                            $this->intTipo,
+                            $this->intPeso,
+                            $this->strTipoEmpaquetado,
+                            $this->strfechaUpdate,
+                            $this->intStatus);
+            $request = $this->update($sql,$arrData);
             return $request;
         }
     }

@@ -93,5 +93,30 @@
             $request = $this->select($sql);
             return $request;
         }
+
+        public function updateHilomiguelgarcia(int $idhilomiguelgarcia, int $color, string $marca, string $tenida, int $tipo, int $peso, string $tipoEmpaquetado, string $fechaupdate,int $status)
+        {
+            $this->intIdHiloMiguelGarcia = $idhilomiguelgarcia;
+            $this->intColor = $color;
+            $this->strMarca = $marca;
+            $this->strTenida = $tenida;
+            $this->intTipo = $tipo;
+            $this->intPeso = $peso;
+            $this->strTipoEmpaquetado = $tipoEmpaquetado;
+            $this->strfechaUpdate = $fechaupdate;
+            $this->intStatus = $status;
+
+            $sql = "UPDATE hilosmiguelgarcia SET color_id=?, marca=?, tenida=?, tipo_id=?, peso_total=?, tipo_empaquetado=?, dateupdate=?, status=? WHERE idhilosmiguelgarcia = '{$this->intIdHiloMiguelGarcia}'";
+            $arrData = array($this->intColor,
+                            $this->strMarca,
+                            $this->strTenida,
+                            $this->intTipo,
+                            $this->intPeso,
+                            $this->strTipoEmpaquetado,
+                            $this->strfechaUpdate,
+                            $this->intStatus);
+            $request = $this->update($sql,$arrData);
+            return $request;
+        }
     }
 ?>

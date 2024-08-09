@@ -57,17 +57,31 @@
         public function setTipo()
         {
             if ($_POST) {
+                //dep($_POST);die();
                 if (empty($_POST['txtTipo']) || empty($_POST['listStatus'])) {
                     $arrResponse = array("status" => false, "msg" => 'Datos incorrectos.');
                 } else {
+                    $idTipo = intval($_POST['idTipo']);
                     $strTipo = ucwords(strClean($_POST['txtTipo']));
                     $intStatus = intval(strClean($_POST['listStatus']));
 
-                    $request_tipo = $this->model->insertTipo($strTipo,
+                    if ($idTipo == 0) {
+                        $option = 1;
+                        $request_tipo = $this->model->insertTipo($strTipo,
                                                             $intStatus);
+                    } else {
+                        $option = 2;
+                        $request_tipo = $this->model->updateTipo($idTipo,
+                                                            $strTipo,
+                                                            $intStatus);
+                    }
 
                     if ($request_tipo > 0) {
-                        $arrResponse = array("status" => true, "msg" => 'Datos guardados correctamente.');
+                        if ($option == 1) {
+                            $arrResponse = array("status" => true, "msg" => 'Datos Guardados correctamente.');
+                        }else{
+                            $arrResponse = array("status" => true, "msg" => 'Datos Actualizados correctamente.');
+                        }
                     } else if($request_tipo == 'exist')
                     {
                         $arrResponse = array("status" => false, "msg" => '¡Atención! el tipo ya existe, ingrese otro.');

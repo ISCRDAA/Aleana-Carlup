@@ -54,6 +54,7 @@
                 if (empty($_POST['listColor']) || empty($_POST['txtMarca']) || empty($_POST['txtTenida']) || empty($_POST['listTipo']) || empty($_POST['txtPesoTotal']) || empty($_POST['listTipoEmpaquetado']) || empty($_POST['listStatus'])) {
                     $arrResponse = array("status" => false, "msg" => 'Datos incorrectos.');
                 } else {
+                    $idHiloInternacional = intval($_POST['idHilosInternacionales']);
                     $intColor = intval(strClean($_POST['listColor']));
                     $strMarca = ucwords(strClean($_POST['txtMarca']));
                     $strTenida = '#'.ucwords(strClean($_POST['txtTenida']));
@@ -64,7 +65,9 @@
 
                     $fechaCliente = date("Y-m-d H:i:s"); // Capturar la fecha y hora actuales del servidor
 
-                    $request_hiloeuro = $this->model->insertHilointernacional($intColor,
+                    if ($idHiloInternacional == 0) {
+                        $option = 1;
+                        $request_hiloeuro = $this->model->insertHilointernacional($intColor,
                                                                             $strMarca,
                                                                             $strTenida,
                                                                             $intTipo,
@@ -72,10 +75,26 @@
                                                                             $strTipoEmpaquetado,
                                                                             $fechaCliente,
                                                                             $intStatus);
+                    } else {
+                        $option = 2;
+                        $request_hiloeuro = $this->model->updateHilointernacional($idHiloInternacional,
+                                                                            $intColor,
+                                                                            $strMarca,
+                                                                            $strTenida,
+                                                                            $intTipo,
+                                                                            $intPeso,
+                                                                            $strTipoEmpaquetado,
+                                                                            $fechaCliente,
+                                                                            $intStatus);
+                    }
 
                     if ($request_hiloeuro > 0)
                     {
-                        $arrResponse = array("status" => true, "msg" => 'Datos guardados correctamente.');
+                        if ($option == 1) {
+                            $arrResponse = array("status" => true, "msg" => 'Datos Guardados correctamente.');
+                        }else{
+                            $arrResponse = array("status" => true, "msg" => 'Datos Actualizados correctamente.');
+                        }
                     }else{
                         $arrResponse = array("status" => false, "msg" => 'No es posible almacenar los datos.');
                     }

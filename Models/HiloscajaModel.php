@@ -94,7 +94,8 @@
             return $request;
         }
 
-        public function updateHilocaja(int $idhilocaja, int $color, string $marca, string $tenida, int $tipo, int $peso, string $tipoEmpaquetado, string $fechaupdate,int $status){
+        public function updateHilocaja(int $idhilocaja, int $color, string $marca, string $tenida, int $tipo, int $peso, string $tipoEmpaquetado, string $fechaupdate,int $status)
+        {
             $this->intIdHiloCaja = $idhilocaja;
             $this->intColor = $color;
             $this->strMarca = $marca;
