@@ -49,7 +49,8 @@ document.addEventListener('DOMContentLoaded', function(){
                     formColor.reset();
                     swal("Color", objData.msg, "success");
                     tableColores.ajax.reload(function(){
-
+                        fntViewColor();
+                        fntEditColor();
                     });
                 } else {
                     swal("Error", objData.msg, "error");

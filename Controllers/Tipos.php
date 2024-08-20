@@ -76,7 +76,8 @@
                                                             $intStatus);
                     }
 
-                    if ($request_tipo > 0) {
+                    if ($request_tipo > 0)
+                    {
                         if ($option == 1) {
                             $arrResponse = array("status" => true, "msg" => 'Datos Guardados correctamente.');
                         }else{

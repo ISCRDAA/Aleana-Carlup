@@ -31,7 +31,7 @@
             return $request;
         }
 
-        public function insertModeloprenda(string $nombre, int $tipo, int $peso, $status)
+        public function insertModeloprenda(string $nombre, int $tipo, int $peso, int $status)
         {
             $this->strNombre = $nombre;
             $this->intTipo = $tipo;
@@ -74,6 +74,30 @@
                     ON modelo.tipo_id = tipo.id_tipo
                     WHERE modelo.id_modelo = '{$this->intIdModeloPrenda}'";
             $request = $this->select($sql);
+            return $request;
+        }
+
+        public function updateModeloprenda(int $idmodeloprenda, string $nombre, int $tipo, int $peso, int $status)
+        {
+            $this->intIdModeloPrenda = $idmodeloprenda;
+            $this->strNombre = $nombre;
+            $this->intTipo = $tipo;
+            $this->intPeso = $peso;
+            $this->intStatus = $status;
+
+            $sql = "SELECT * FROM modelo WHERE (nombre = '{$this->strNombre}' and id_modelo != '{$this->intIdModeloPrenda}')";
+            $request = $this->select_all($sql);
+
+            if (empty($request)) {
+                $sql = "UPDATE modelo SET nombre=?, tipo_id=?, peso_modelo=?, status=? WHERE id_modelo = '{$this->intIdModeloPrenda}'";
+                $arrData = array($this->strNombre,
+                                $this->intTipo,
+                                $this->intPeso,
+                                $this->intStatus);
+                $request = $this->update($sql,$arrData);
+            } else {
+                $request = "exist";
+            }
             return $request;
         }
     }

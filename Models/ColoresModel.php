@@ -45,5 +45,25 @@
             $request = $this->select($sql);
             return $request;
         }
+
+        public function updateColor(int $idcolor ,string $tipo, int $status)
+        {
+            $this->intIdColor = $idcolor;
+            $this->strNombre = $tipo;
+            $this->intStatus = $status;
+
+            $sql = "SELECT * FROM colores_hilos WHERE (nombre_color = '{$this->strNombre}' and id_color != '{$this->intIdColor}')";
+            $request = $this->select_all($sql);
+
+            if (empty($request)) {
+                $sql = "UPDATE colores_hilos SET nombre_color=?, status=? WHERE id_color = '{$this->intIdColor}'";
+                $arrData = array($this->strNombre,
+                                $this->intStatus);
+                $request = $this->update($sql,$arrData);
+            } else {
+                $request = "exist";
+            }
+            return $request;
+        }
     }
 ?>

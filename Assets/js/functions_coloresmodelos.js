@@ -61,6 +61,11 @@ document.addEventListener('DOMContentLoaded', function(){
                     formColormodelo.reset();
                     swal("Color de Modelo", objData.msg, "success");
                     tableColoresmodelos.ajax.reload(function(){
+                        fntColores();
+                        fntModelosPrendas();
+                        fntColoresCombinaciones();
+                        fntViewColorModelo();
+                        fntEditColorModelo();
                     });
                 } else {
                     swal("Error", objData.msg, "error");

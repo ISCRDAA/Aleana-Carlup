@@ -56,22 +56,38 @@
 
         public function setModeloprenda(){
             if ($_POST) {
+                //dep($_POST);exit;
                 if (empty($_POST['txtNombre']) || empty($_POST['listTipo']) || empty($_POST['txtPeso']) || empty($_POST['listStatus'])) {
                     $arrResponse = array("status" => false, "msg" => 'Datos incorrectos.');
                 } else {
+                    $idModeloPrenda = intval($_POST['idModeloPrenda']);
                     $strNombre = ucwords(strClean($_POST['txtNombre']));
                     $intTipo = intval(strClean($_POST['listTipo']));
                     $intPeso = intval(strClean($_POST['txtPeso']));
                     $intStatus = intval(strClean($_POST['listStatus']));
 
-                    $request_modelpren = $this->model->insertModeloprenda($strNombre,
-                                                                        $intTipo,
-                                                                        $intPeso,
-                                                                        $intStatus);
+                    if ($idModeloPrenda == 0) {
+                        $option = 1;
+                        $request_modelpren = $this->model->insertModeloprenda($strNombre,
+                                                                            $intTipo,
+                                                                            $intPeso,
+                                                                            $intStatus);
+                    } else {
+                        $option = 2;
+                        $request_modelpren = $this->model->updateModeloprenda($idModeloPrenda,
+                                                                            $strNombre,
+                                                                            $intTipo,
+                                                                            $intPeso,
+                                                                            $intStatus);
+                    }
 
                     if ($request_modelpren > 0)
                     {
-                        $arrResponse = array("status" => true, "msg" => 'Datos guardados correctamente.');
+                        if ($option == 1) {
+                            $arrResponse = array("status" => true, "msg" => 'Datos Guardados correctamente.');
+                        }else{
+                            $arrResponse = array("status" => true, "msg" => 'Datos Actualizados correctamente.');
+                        }
                     }else if($request_modelpren == 'exist')
                     {
                         $arrResponse = array("status" => false, "msg" => '¡Atención! el Nombre del Modelo ya existe, ingrese otro.');

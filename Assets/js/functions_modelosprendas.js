@@ -55,7 +55,9 @@ document.addEventListener('DOMContentLoaded', function(){
                     formModeloprenda.reset();
                     swal("Modelo", objData.msg, "success");
                     tableModelosprendas.ajax.reload(function(){
-
+                        fntTiposPrendas();
+                        fntViewModeloPrenda();
+                        fntEditModeloPrenda();
                     });
                 } else {
                     swal("Error", objData.msg, "error");

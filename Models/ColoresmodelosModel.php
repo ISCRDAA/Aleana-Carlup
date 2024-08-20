@@ -125,5 +125,37 @@
             $request = $this->select($sql);
             return $request;
         }
+
+        public function updateColorModelo(int $idColorModelo, int $color, int $modelo, int $combinacion01, int $combinacion02, int $combinacion03, int $combinacion04, int $combinacion05, int $status)
+        {
+            $this->intIdColorModelo = $idColorModelo;
+            $this->intColor = $color;
+            $this->intModelo = $modelo;
+            $this->intCombinacion01 = $combinacion01;
+            $this->intCombinacion02 = $combinacion02;
+            $this->intCombinacion03 = $combinacion03;
+            $this->intCombinacion04 = $combinacion04;
+            $this->intCombinacion05 = $combinacion05;
+            $this->intStatus = $status;
+
+            $sql = "SELECT * FROM color_modelo WHERE (modelo_id = '{$this->intModelo}' and id_color_modelo != '{$this->intIdColorModelo}')";
+            $request = $this->select_all($sql);
+
+            if (empty($request)) {
+                $sql = "UPDATE color_modelo SET color_id=?, modelo_id=?, combinacion01=?, combinacion02=?, combinacion03=?, combinacion04=?, combinacion05=?, status=? WHERE id_color_modelo = '{$this->intIdColorModelo}'";
+                $arrData = array($this->intColor,
+                                $this->intModelo,
+                                $this->intCombinacion01,
+                                $this->intCombinacion02,
+                                $this->intCombinacion03,
+                                $this->intCombinacion04,
+                                $this->intCombinacion05,
+                                $this->intStatus);
+                $request = $this->update($sql,$arrData);
+            } else {
+                $request = "exist";
+            }
+            return $request;
+        }
     }
 ?>
